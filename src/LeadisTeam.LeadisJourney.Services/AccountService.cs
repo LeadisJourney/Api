@@ -44,10 +44,9 @@ namespace LeadisTeam.LeadisJourney.Services
             _userRepository.Save(account.User);
         }
 
-        public void Get(int id) {
-            throw new NotImplementedException();
- /*           var account = _accountRepository.FindBy(id);
-            return;*/
+        public Account Get(int id) {
+            var account = _accountRepository.FindBy(id);
+            return account;
         }
     }
 }

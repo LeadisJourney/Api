@@ -18,9 +18,14 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id) {
-            _accountService.Get(id);
-            return "Je suis un account";
+        public ViewAccountModel Get(int id) {
+            var account = _accountService.Get(id);
+            return new ViewAccountModel() {
+                Email = account.Email,
+                Name = account.User.Name,
+                FirstName = account.User.FirstName,
+                Pseudo = account.Pseudo
+            };
         }
 
         [HttpPost, Route("login")]
