@@ -1,0 +1,57 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using LeadisTeam.LeadisJourney.Api.Models;
+using LeadisTeam.LeadisJourney.Core.Repositories;
+using LeadisTeam.LeadisJourney.Services.Contracts;
+using Microsoft.AspNet.Mvc;
+
+
+namespace LeadisTeam.LeadisJourney.Api.Controllers
+{
+    [Route("api/[controller]")]
+    public class GroupController : Controller {
+        private readonly IGroupService _groupService;
+        private readonly IUnitOfWork _unitOfWork;
+
+        public GroupController(IGroupService groupService, IUnitOfWork unitOfWork) {
+            _groupService = groupService;
+            _unitOfWork = unitOfWork;
+        }
+
+        // GET: api/values
+        [HttpGet]
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
+
+        // GET api/values/5
+        [HttpGet("{id}")]
+        public string Get(int id)
+        {
+            return "value";
+        }
+
+        // POST api/group
+        [HttpPost]
+        public HttpOkResult Create([FromBody]CreateGroupModel res) {
+            _groupService.Create(res.Name, 1);
+            _unitOfWork.Commit();
+            return Ok();
+        }
+
+        // PUT api/values/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody]string value)
+        {
+        }
+
+        // DELETE api/values/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+        }
+    }
+}
