@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6F716DDB-0AD8-4450-9245-471D727D0A2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{49C2B92A-6F65-4FDA-94E2-3F07CD8B8130}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LeadisTeam.LeadisJourney.Api", "src\LeadisTeam.LeadisJourney.Api\LeadisTeam.LeadisJourney.Api.xproj", "{C657E4ED-6EE5-41E2-8520-DE1CFA698C5F}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LeadisTeam.LeadisJourney.Core", "src\LeadisTeam.LeadisJourney.Core\LeadisTeam.LeadisJourney.Core.xproj", "{1B76C88B-C29E-4339-8F3D-6A2C829FA430}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LeadisTeam.LeadisJourney.Services", "src\LeadisTeam.LeadisJourney.Services\LeadisTeam.LeadisJourney.Services.xproj", "{781F655E-8679-4B0D-9F8A-550DE63BBFBA}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LeadisTeam.LeadisJourney.Repositories", "src\LeadisTeam.LeadisJourney.Repositories\LeadisTeam.LeadisJourney.Repositories.xproj", "{55694D28-8CC0-4C90-A754-608345156303}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{51BFCE1B-09A2-4CF4-96C7-C54171D3067B}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LeadisTeam.LeadisJourney.Core.Tests", "test\LeadisTeam.LeadisJourney.Core.Tests\LeadisTeam.LeadisJourney.Core.Tests.xproj", "{821C4752-9C32-4EA0-A2BA-221B28E92561}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LeadisTeam.LeadisJourney.Services.Tests", "test\LeadisTeam.LeadisJourney.Services.Tests\LeadisTeam.LeadisJourney.Services.Tests.xproj", "{14818E57-5C3C-4A98-A30B-5F639A044785}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LeadisTeam.LeadisJourney.Repositories.Tests", "test\LeadisTeam.LeadisJourney.Repositories.Tests\LeadisTeam.LeadisJourney.Repositories.Tests.xproj", "{793C8259-A1D9-4F4D-B541-8F92BFF0522F}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LeadisTeam.LeadisJourney.Api.Tests", "test\LeadisTeam.LeadisJourney.Api.Tests\LeadisTeam.LeadisJourney.Api.Tests.xproj", "{693628BE-6D24-47C5-B2AA-9D007C5EA378}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C657E4ED-6EE5-41E2-8520-DE1CFA698C5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C657E4ED-6EE5-41E2-8520-DE1CFA698C5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C657E4ED-6EE5-41E2-8520-DE1CFA698C5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C657E4ED-6EE5-41E2-8520-DE1CFA698C5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B76C88B-C29E-4339-8F3D-6A2C829FA430}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B76C88B-C29E-4339-8F3D-6A2C829FA430}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B76C88B-C29E-4339-8F3D-6A2C829FA430}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B76C88B-C29E-4339-8F3D-6A2C829FA430}.Release|Any CPU.Build.0 = Release|Any CPU
+		{781F655E-8679-4B0D-9F8A-550DE63BBFBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{781F655E-8679-4B0D-9F8A-550DE63BBFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{781F655E-8679-4B0D-9F8A-550DE63BBFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{781F655E-8679-4B0D-9F8A-550DE63BBFBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55694D28-8CC0-4C90-A754-608345156303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55694D28-8CC0-4C90-A754-608345156303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55694D28-8CC0-4C90-A754-608345156303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55694D28-8CC0-4C90-A754-608345156303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{821C4752-9C32-4EA0-A2BA-221B28E92561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{821C4752-9C32-4EA0-A2BA-221B28E92561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{821C4752-9C32-4EA0-A2BA-221B28E92561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{821C4752-9C32-4EA0-A2BA-221B28E92561}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14818E57-5C3C-4A98-A30B-5F639A044785}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14818E57-5C3C-4A98-A30B-5F639A044785}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14818E57-5C3C-4A98-A30B-5F639A044785}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14818E57-5C3C-4A98-A30B-5F639A044785}.Release|Any CPU.Build.0 = Release|Any CPU
+		{793C8259-A1D9-4F4D-B541-8F92BFF0522F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{793C8259-A1D9-4F4D-B541-8F92BFF0522F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{793C8259-A1D9-4F4D-B541-8F92BFF0522F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{793C8259-A1D9-4F4D-B541-8F92BFF0522F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{693628BE-6D24-47C5-B2AA-9D007C5EA378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{693628BE-6D24-47C5-B2AA-9D007C5EA378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{693628BE-6D24-47C5-B2AA-9D007C5EA378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{693628BE-6D24-47C5-B2AA-9D007C5EA378}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C657E4ED-6EE5-41E2-8520-DE1CFA698C5F} = {6F716DDB-0AD8-4450-9245-471D727D0A2E}
+		{1B76C88B-C29E-4339-8F3D-6A2C829FA430} = {6F716DDB-0AD8-4450-9245-471D727D0A2E}
+		{781F655E-8679-4B0D-9F8A-550DE63BBFBA} = {6F716DDB-0AD8-4450-9245-471D727D0A2E}
+		{55694D28-8CC0-4C90-A754-608345156303} = {6F716DDB-0AD8-4450-9245-471D727D0A2E}
+		{821C4752-9C32-4EA0-A2BA-221B28E92561} = {51BFCE1B-09A2-4CF4-96C7-C54171D3067B}
+		{14818E57-5C3C-4A98-A30B-5F639A044785} = {51BFCE1B-09A2-4CF4-96C7-C54171D3067B}
+		{793C8259-A1D9-4F4D-B541-8F92BFF0522F} = {51BFCE1B-09A2-4CF4-96C7-C54171D3067B}
+		{693628BE-6D24-47C5-B2AA-9D007C5EA378} = {51BFCE1B-09A2-4CF4-96C7-C54171D3067B}
+	EndGlobalSection
+EndGlobal

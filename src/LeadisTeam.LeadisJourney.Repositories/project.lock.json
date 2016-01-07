@@ -1,0 +1,224 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    "DNX,Version=v4.5.1": {
+      "FluentNHibernate/2.0.3": {
+        "type": "package",
+        "dependencies": {
+          "NHibernate": "4.0.0"
+        },
+        "compile": {
+          "lib/net40/FluentNHibernate.dll": {}
+        },
+        "runtime": {
+          "lib/net40/FluentNHibernate.dll": {}
+        }
+      },
+      "Iesi.Collections/4.0.0.4000": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Iesi.Collections.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Iesi.Collections.dll": {}
+        }
+      },
+      "LeadisTeam.LeadisJourney.Core/1.0.0-alpha": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1"
+      },
+      "NHibernate/4.0.4.4000": {
+        "type": "package",
+        "dependencies": {
+          "Iesi.Collections": "[4.0.0, 5.0.0)"
+        },
+        "compile": {
+          "lib/net40/NHibernate.dll": {}
+        },
+        "runtime": {
+          "lib/net40/NHibernate.dll": {}
+        }
+      },
+      "Npgsql/3.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Npgsql.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Npgsql.dll": {}
+        }
+      }
+    },
+    "DNX,Version=v4.5.1/win7-x86": {
+      "FluentNHibernate/2.0.3": {
+        "type": "package",
+        "dependencies": {
+          "NHibernate": "4.0.0"
+        },
+        "compile": {
+          "lib/net40/FluentNHibernate.dll": {}
+        },
+        "runtime": {
+          "lib/net40/FluentNHibernate.dll": {}
+        }
+      },
+      "Iesi.Collections/4.0.0.4000": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Iesi.Collections.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Iesi.Collections.dll": {}
+        }
+      },
+      "LeadisTeam.LeadisJourney.Core/1.0.0-alpha": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1"
+      },
+      "NHibernate/4.0.4.4000": {
+        "type": "package",
+        "dependencies": {
+          "Iesi.Collections": "[4.0.0, 5.0.0)"
+        },
+        "compile": {
+          "lib/net40/NHibernate.dll": {}
+        },
+        "runtime": {
+          "lib/net40/NHibernate.dll": {}
+        }
+      },
+      "Npgsql/3.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Npgsql.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Npgsql.dll": {}
+        }
+      }
+    },
+    "DNX,Version=v4.5.1/win7-x64": {
+      "FluentNHibernate/2.0.3": {
+        "type": "package",
+        "dependencies": {
+          "NHibernate": "4.0.0"
+        },
+        "compile": {
+          "lib/net40/FluentNHibernate.dll": {}
+        },
+        "runtime": {
+          "lib/net40/FluentNHibernate.dll": {}
+        }
+      },
+      "Iesi.Collections/4.0.0.4000": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Iesi.Collections.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Iesi.Collections.dll": {}
+        }
+      },
+      "LeadisTeam.LeadisJourney.Core/1.0.0-alpha": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1"
+      },
+      "NHibernate/4.0.4.4000": {
+        "type": "package",
+        "dependencies": {
+          "Iesi.Collections": "[4.0.0, 5.0.0)"
+        },
+        "compile": {
+          "lib/net40/NHibernate.dll": {}
+        },
+        "runtime": {
+          "lib/net40/NHibernate.dll": {}
+        }
+      },
+      "Npgsql/3.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Npgsql.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Npgsql.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LeadisTeam.LeadisJourney.Core/1.0.0-alpha": {
+      "type": "project",
+      "path": "../LeadisTeam.LeadisJourney.Core/project.json"
+    },
+    "FluentNHibernate/2.0.3": {
+      "type": "package",
+      "sha512": "qlnjj/a2ClTVWLw0uESCBsmd5r+LaeNXoaUiVyeGzpXmqTs/mfcgZP+GO63xp3VTq4ydNBHKBuWMFMndW/uzOQ==",
+      "files": [
+        "FluentNHibernate.2.0.3.nupkg",
+        "FluentNHibernate.2.0.3.nupkg.sha512",
+        "FluentNHibernate.nuspec",
+        "lib/net40/FluentNHibernate.dll",
+        "lib/net40/FluentNHibernate.pdb",
+        "lib/net40/FluentNHibernate.XML"
+      ]
+    },
+    "Iesi.Collections/4.0.0.4000": {
+      "type": "package",
+      "sha512": "fLQKwZovMOhjte47Op+2YWLpmncQ/siA7hOdmG2eBLTFjp81s+gGkkGnDetOhBqYnmWK8g2kyx1DP9uNaJ68Ew==",
+      "files": [
+        "Iesi.Collections.4.0.0.4000.nupkg",
+        "Iesi.Collections.4.0.0.4000.nupkg.sha512",
+        "Iesi.Collections.nuspec",
+        "lib/net40/Iesi.Collections.dll",
+        "lib/net40/Iesi.Collections.xml"
+      ]
+    },
+    "NHibernate/4.0.4.4000": {
+      "type": "package",
+      "sha512": "Me3y8Q1NPEfiTRuisgayLs5nm7J4hoGhvXT/hD5w78WajPFfsb+qNP2ld+bNimpvW0U/BDSaZAUS0FKl5+ty/w==",
+      "files": [
+        "ConfigurationTemplates/FireBird.cfg.xml",
+        "ConfigurationTemplates/MSSQL.cfg.xml",
+        "ConfigurationTemplates/MySql.cfg.xml",
+        "ConfigurationTemplates/Oracle.cfg.xml",
+        "ConfigurationTemplates/PostgreSQL.cfg.xml",
+        "ConfigurationTemplates/SQLite.cfg.xml",
+        "ConfigurationTemplates/SybaseASE.cfg.xml",
+        "ConfigurationTemplates/SybaseSQLAnywhere.cfg.xml",
+        "lib/net40/NHibernate.dll",
+        "lib/net40/NHibernate.xml",
+        "NHibernate.4.0.4.4000.nupkg",
+        "NHibernate.4.0.4.4000.nupkg.sha512",
+        "NHibernate.license.txt",
+        "NHibernate.nuspec",
+        "NHibernate.readme.html",
+        "NHibernate.releasenotes.txt",
+        "nhibernate-configuration.xsd",
+        "nhibernate-mapping.xsd"
+      ]
+    },
+    "Npgsql/3.0.3": {
+      "type": "package",
+      "sha512": "VPLWKM30FLaxBVgnrVmR1+F119fDCuQrSeAaK7zWJyl+fRkIiO4dTRWJlwyjJhIPK+4fcBVHpX/xxStQEgcI2A==",
+      "files": [
+        "lib/net45/Npgsql.dll",
+        "lib/net45/Npgsql.xml",
+        "Npgsql.3.0.3.nupkg",
+        "Npgsql.3.0.3.nupkg.sha512",
+        "Npgsql.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [],
+    "DNX,Version=v4.5.1": [
+      "FluentNHibernate >= 2.0.3",
+      "NHibernate >= 4.0.4.4000",
+      "Npgsql >= 3.0.3",
+      "LeadisTeam.LeadisJourney.Core >= 1.0.0-*",
+      "fx/System.Data >= 4.0.0"
+    ]
+  }
+}
