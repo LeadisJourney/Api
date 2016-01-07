@@ -1,4 +1,5 @@
-﻿using LeadisTeam.LeadisJourney.Core.Entities;
+﻿using System;
+using LeadisTeam.LeadisJourney.Core.Entities;
 using LeadisTeam.LeadisJourney.Core.Repositories;
 using LeadisTeam.LeadisJourney.Services.Contracts;
 
@@ -28,6 +29,25 @@ namespace LeadisTeam.LeadisJourney.Services
             account.User.Account = account;
             _accountRepository.Save(account);
 			_userRepository.Save(account.User);
+        }
+
+        public void Update(int id, string email, string firstName, string name, string password) {
+            var account = _accountRepository.FindBy(id);
+            if (account == null) {
+                throw new ArgumentException(nameof(id));
+            }
+            account.Email = email;
+            account.Password = password;
+            account.User.Name = name;
+            account.User.FirstName = firstName;
+            _accountRepository.Save(account);
+            _userRepository.Save(account.User);
+        }
+
+        public void Get(int id) {
+            throw new NotImplementedException();
+ /*           var account = _accountRepository.FindBy(id);
+            return;*/
         }
     }
 }

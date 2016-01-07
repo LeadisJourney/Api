@@ -19,10 +19,11 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
         // GET api/values/5
         [HttpGet("{id}")]
         public string Get(int id) {
+            _accountService.Get(id);
             return "Je suis un account";
         }
 
-        [HttpPost]
+        [HttpPost, Route("login")]
         public HttpOkResult Login([FromBody] LoginAccountModel res) {
             throw new NotImplementedException();
         }
@@ -37,8 +38,10 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
 
         // PUT api/account/5
         [HttpPut("{id}")]
-        public void Update(int id, [FromBody] UpdateAccountModel res) {
-            throw new NotImplementedException();
+        public HttpOkResult Update(int id, [FromBody] UpdateAccountModel res) {
+            _accountService.Update(id, res.Email, res.FirstName, res.Name, res.Password);
+            _unitOfWork.Commit();
+            return Ok();
         }
 
         // DELETE api/values/5
