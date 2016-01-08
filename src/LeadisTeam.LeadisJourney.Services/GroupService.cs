@@ -27,5 +27,16 @@ namespace LeadisTeam.LeadisJourney.Services
             group.Admins.Add(account);
             _groupRepository.Save(group);
         }
+
+        public void AddUser(List<int> accountsId, int id) {
+            var group = _groupRepository.FindBy(id);
+            foreach (var accountId in accountsId) {
+                var account = _accountRepository.FindBy(accountId);
+                account.Group.Add(group);
+                group.Members.Add(account);
+                _accountRepository.Save(account);
+            }
+            _groupRepository.Save(group);
+        }
     }
 }

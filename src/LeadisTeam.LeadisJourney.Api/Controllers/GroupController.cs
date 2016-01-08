@@ -42,10 +42,17 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers
             return Ok();
         }
 
-        // PUT api/values/5
+        // PUT api/group/add/5
+        [HttpPut("add/{id}")]
+        public HttpOkResult AddUser(int id, [FromBody]AddUserToGroupModel res) {
+            _groupService.AddUser(res.accountsId, id);
+            _unitOfWork.Commit();
+            return Ok();
+        }
+
+        // PUT api/group/delete/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
+        public void DeleteUser(int id, [FromBody]string value) {
         }
 
         // DELETE api/values/5
