@@ -49,10 +49,12 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
             return Ok();
         }
 
-        // DELETE api/values/5
+        // DELETE api/account/5
         [HttpDelete("{id}")]
-        public void Desactivate(int id) {
-            throw new NotImplementedException();
+        public HttpOkResult Desactivate(int id) {
+            _accountService.Desactivate(id);
+            _unitOfWork.Commit();
+            return Ok();
         }
     }
 }

@@ -10,5 +10,6 @@ namespace LeadisTeam.LeadisJourney.Services.Contracts
         void Create(string pseudo, string email, string name, string firstName, string password);
         void Update(int id, string email, string firstName, string name, string password);
         Account Get(int id);
+        void Desactivate(int id);
     }
 }

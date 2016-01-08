@@ -48,5 +48,11 @@ namespace LeadisTeam.LeadisJourney.Services
             var account = _accountRepository.FindBy(id);
             return account;
         }
+
+        public void Desactivate(int id) {
+            var account = _accountRepository.FindBy(id);
+            account.EntityState = EntityState.Desactivated;
+            _accountRepository.Save(account);
+        }
     }
 }
