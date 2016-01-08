@@ -38,5 +38,16 @@ namespace LeadisTeam.LeadisJourney.Services
             }
             _groupRepository.Save(group);
         }
+
+        public void DeleteUser(List<int> accountsId, int id) {
+            var group = _groupRepository.FindBy(id);
+            foreach (var accountId in accountsId) {
+                var account = _accountRepository.FindBy(accountId);
+                account.Group.Remove(group);
+                group.Members.Remove(account);
+                _accountRepository.Save(account);
+            }
+            _groupRepository.Save(group);
+        }
     }
 }

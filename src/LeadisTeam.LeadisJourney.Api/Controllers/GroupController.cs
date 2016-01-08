@@ -51,8 +51,11 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers
         }
 
         // PUT api/group/delete/5
-        [HttpPut("{id}")]
-        public void DeleteUser(int id, [FromBody]string value) {
+        [HttpPut("delete/{id}")]
+        public HttpOkResult DeleteUser(int id, [FromBody]DeleteUserFromGroupModel res) {
+            _groupService.DeleteUser(res.accountsId, id);
+            _unitOfWork.Commit();
+            return Ok();
         }
 
         // DELETE api/values/5
