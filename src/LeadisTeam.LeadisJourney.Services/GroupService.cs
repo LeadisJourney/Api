@@ -24,6 +24,7 @@ namespace LeadisTeam.LeadisJourney.Services
             };
             var account = _accountRepository.FindBy(adminId);
             group.Admins = new List<Account>();
+            group.Members.Add(account);
             group.Admins.Add(account);
             _groupRepository.Save(group);
         }
@@ -44,6 +45,8 @@ namespace LeadisTeam.LeadisJourney.Services
             foreach (var accountId in accountsId) {
                 var account = _accountRepository.FindBy(accountId);
                 account.Group.Remove(group);
+                if (group.Admins.Contains(account))
+                    group.Admins.Remove(account);
                 group.Members.Remove(account);
                 _accountRepository.Save(account);
             }
