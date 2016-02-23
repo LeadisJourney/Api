@@ -8,7 +8,7 @@ using Microsoft.AspNet.Mvc;
 
 
 namespace LeadisTeam.LeadisJourney.Api.Controllers {
-    [Route("api/[controller]")]
+    [Route("v0.1/api/[controller]")]
     public class AccountController : Controller {
         private readonly IAccountService _accountService;
         private readonly IUnitOfWork _unitOfWork;

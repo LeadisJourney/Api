@@ -177,7 +177,7 @@
     },
     "NHibernate/4.0.4.4000": {
       "type": "package",
-      "sha512": "Me3y8Q1NPEfiTRuisgayLs5nm7J4hoGhvXT/hD5w78WajPFfsb+qNP2ld+bNimpvW0U/BDSaZAUS0FKl5+ty/w==",
+      "sha512": "jAKwpGLeGai8KWj1e3p1K882vlZUJaQeH4RTuscKTyXhsEsiQEe2uKs9S3bY91aPyygMiPXg1CyRopi1K+e5aA==",
       "files": [
         "ConfigurationTemplates/FireBird.cfg.xml",
         "ConfigurationTemplates/MSSQL.cfg.xml",

@@ -10,7 +10,7 @@ using Microsoft.AspNet.Mvc;
 
 namespace LeadisTeam.LeadisJourney.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("v0.1/api/[controller]")]
     public class GroupController : Controller {
         private readonly IGroupService _groupService;
         private readonly IUnitOfWork _unitOfWork;
