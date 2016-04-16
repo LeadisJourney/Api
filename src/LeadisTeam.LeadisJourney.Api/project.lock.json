@@ -71,6 +71,7 @@
         "dependencies": {
           "FluentNHibernate": "2.0.3",
           "LeadisTeam.LeadisJourney.Core": "1.0.0",
+          "MySql.Data": "6.8.7",
           "NHibernate": "4.0.4.4000",
           "Npgsql": "3.0.3"
         },
@@ -1544,6 +1545,15 @@
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
         }
       },
+      "MySql.Data/6.8.7": {
+        "type": "package",
+        "compile": {
+          "lib/net45/MySql.Data.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MySql.Data.dll": {}
+        }
+      },
       "Newtonsoft.Json/8.0.2": {
         "type": "package",
         "compile": {
@@ -1913,6 +1923,7 @@
         "dependencies": {
           "FluentNHibernate": "2.0.3",
           "LeadisTeam.LeadisJourney.Core": "1.0.0",
+          "MySql.Data": "6.8.7",
           "NHibernate": "4.0.4.4000",
           "Npgsql": "3.0.3"
         },
@@ -3389,6 +3400,15 @@
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
         }
       },
+      "MySql.Data/6.8.7": {
+        "type": "package",
+        "compile": {
+          "lib/net45/MySql.Data.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MySql.Data.dll": {}
+        }
+      },
       "Newtonsoft.Json/8.0.2": {
         "type": "package",
         "compile": {
@@ -3764,6 +3784,7 @@
         "dependencies": {
           "FluentNHibernate": "2.0.3",
           "LeadisTeam.LeadisJourney.Core": "1.0.0",
+          "MySql.Data": "6.8.7",
           "NHibernate": "4.0.4.4000",
           "Npgsql": "3.0.3"
         },
@@ -5238,6 +5259,15 @@
         },
         "runtime": {
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
+        }
+      },
+      "MySql.Data/6.8.7": {
+        "type": "package",
+        "compile": {
+          "lib/net45/MySql.Data.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MySql.Data.dll": {}
         }
       },
       "Newtonsoft.Json/8.0.2": {
@@ -6745,6 +6775,23 @@
         "Microsoft.Net.Http.Headers.1.0.0-rc1-final.nupkg",
         "Microsoft.Net.Http.Headers.1.0.0-rc1-final.nupkg.sha512",
         "Microsoft.Net.Http.Headers.nuspec"
+      ]
+    },
+    "MySql.Data/6.8.7": {
+      "type": "package",
+      "sha512": "2siFQd7n20vuQuZnwyltY2ek9r6oFzcEPuDAmLK/inR1E9xSeBLyeIoQn1PTEVOE1seiE6tZ7vVlL7oFEJF7UQ==",
+      "files": [
+        "CHANGES",
+        "content/app.config.transform",
+        "content/web.config.transform",
+        "lib/net20/MySql.Data.dll",
+        "lib/net20-cf/MySql.Data.CF.dll",
+        "lib/net40/MySql.Data.dll",
+        "lib/net45/MySql.Data.dll",
+        "MySql.Data.6.8.7.nupkg",
+        "MySql.Data.6.8.7.nupkg.sha512",
+        "MySql.Data.nuspec",
+        "Readme.txt"
       ]
     },
     "Newtonsoft.Json/8.0.2": {

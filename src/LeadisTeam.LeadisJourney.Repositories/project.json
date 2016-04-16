@@ -11,7 +11,8 @@
         "FluentNHibernate": "2.0.3",
         "NHibernate": "4.0.4.4000",
         "Npgsql": "3.0.3",
-        "LeadisTeam.LeadisJourney.Core": "1.0.0-*"
+        "LeadisTeam.LeadisJourney.Core": "1.0.0-*",
+        "MySql.Data": "6.8.7"
       },
       "frameworkAssemblies": {
         "System.Data": "4.0.0.0"
