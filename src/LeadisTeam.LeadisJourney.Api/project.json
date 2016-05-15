@@ -26,7 +26,8 @@
   },
 
     "commands": {
-        "web": "Microsoft.AspNet.Server.Kestrel"
+        "web": "Microsoft.AspNet.Server.Kestrel",
+	"server": "Microsoft.AspNet.Server.Kestrel --server.urls=2222"
     },
 
     "frameworks": {

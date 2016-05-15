@@ -286,7 +286,7 @@
         }
       }
     },
-    "DNX,Version=v4.5.1/win7-x86": {
+    "DNX,Version=v4.5.1/debian.8-x86": {
       "LeadisTeam.LeadisJourney.Core/1.0.0-alpha": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
@@ -446,12 +446,6 @@
         "dependencies": {
           "Newtonsoft.Json": "8.0.2",
           "System.Net.Http": "4.0.1-beta"
-        }
-      },
-      "runtime.win7.System.Net.Http/4.0.1-beta-23516": {
-        "type": "package",
-        "compile": {
-          "ref/dotnet/_._": {}
         }
       },
       "System.Net.Http/4.0.1-beta-23516": {
@@ -576,7 +570,7 @@
         }
       }
     },
-    "DNX,Version=v4.5.1/win7-x64": {
+    "DNX,Version=v4.5.1/debian.8-x64": {
       "LeadisTeam.LeadisJourney.Core/1.0.0-alpha": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
@@ -736,12 +730,6 @@
         "dependencies": {
           "Newtonsoft.Json": "8.0.2",
           "System.Net.Http": "4.0.1-beta"
-        }
-      },
-      "runtime.win7.System.Net.Http/4.0.1-beta-23516": {
-        "type": "package",
-        "compile": {
-          "ref/dotnet/_._": {}
         }
       },
       "System.Net.Http/4.0.1-beta-23516": {
@@ -1022,23 +1010,10 @@
         "tools/install.ps1"
       ]
     },
-    "runtime.win7.System.Net.Http/4.0.1-beta-23516": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "bCVvitLtx/FGp/F14Yvq6Zkb05n6dwRleYNCSAnnX8YpNTKuKYpBJhEpMBUaOjalsM4lqMfE/kd99LtbZRHaiw==",
-      "files": [
-        "ref/dotnet/_._",
-        "runtime.win7.System.Net.Http.4.0.1-beta-23516.nupkg",
-        "runtime.win7.System.Net.Http.4.0.1-beta-23516.nupkg.sha512",
-        "runtime.win7.System.Net.Http.nuspec",
-        "runtimes/win7/lib/DNXCore50/System.Net.Http.dll",
-        "runtimes/win7/lib/netcore50/System.Net.Http.dll"
-      ]
-    },
     "System.Net.Http/4.0.1-beta-23516": {
       "type": "package",
       "serviceable": true,
-      "sha512": "WbmX0jo84S72GVhRbKtBBUkx2dQ1hzb4TRSLfaiktRh7QKnSP9ctzTxBvXghWQ6GnswBzTHnuc69msImZH5b6A==",
+      "sha512": "A0S7LiARhMNbZTzO+1hMlkWrWJ+KnEBUQbfTOP9QoYdzCmc5vmXsJMEBYudhaKg7T+fpq1xmBzjU8x8rOB2zMA==",
       "files": [
         "lib/net45/_._",
         "lib/win8/_._",
