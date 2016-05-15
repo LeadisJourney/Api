@@ -4,10 +4,12 @@ using LeadisTeam.LeadisJourney.Api.Security;
 using LeadisTeam.LeadisJourney.Core.Repositories;
 using LeadisTeam.LeadisJourney.Services.Contracts;
 using Microsoft.AspNet.Authorization;
+using Microsoft.AspNet.Cors;
 using Microsoft.AspNet.Mvc;
 
 
 namespace LeadisTeam.LeadisJourney.Api.Controllers {
+    [EnableCors("AllowAll")]
     [Route("v0.1/api/[controller]")]
     public class AccountController : Controller {
         private readonly IAccountService _accountService;

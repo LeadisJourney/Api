@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Cors;
 using Microsoft.AspNet.Mvc;
 
 
 namespace LeadisTeam.LeadisJourney.Api.Controllers
 {
+    [EnableCors("AllowAll")]
     [Route("v0.1/api/[controller]")]
     public class TutorialController : Controller
     {
