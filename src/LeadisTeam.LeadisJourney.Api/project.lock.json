@@ -1854,7 +1854,7 @@
         }
       }
     },
-    "DNX,Version=v4.5.1/debian.8-x86": {
+    "DNX,Version=v4.5.1/win7-x86": {
       "Autofac/4.0.0-rc1-177": {
         "type": "package",
         "frameworkAssemblies": [
@@ -2754,6 +2754,9 @@
         },
         "runtime": {
           "lib/dnx451/Microsoft.AspNet.Server.Kestrel.dll": {}
+        },
+        "native": {
+          "runtimes/win7-x86/native/libuv.dll": {}
         }
       },
       "Microsoft.AspNet.StaticFiles/1.0.0-rc1-final": {
@@ -3442,6 +3445,12 @@
         "dependencies": {
           "Newtonsoft.Json": "8.0.2",
           "System.Net.Http": "4.0.1-beta"
+        }
+      },
+      "runtime.win7.System.Net.Http/4.0.1-beta-23516": {
+        "type": "package",
+        "compile": {
+          "ref/dotnet/_._": {}
         }
       },
       "System.Collections/4.0.0": {
@@ -3706,7 +3715,7 @@
         }
       }
     },
-    "DNX,Version=v4.5.1/debian.8-x64": {
+    "DNX,Version=v4.5.1/win7-x64": {
       "Autofac/4.0.0-rc1-177": {
         "type": "package",
         "frameworkAssemblies": [
@@ -4606,6 +4615,9 @@
         },
         "runtime": {
           "lib/dnx451/Microsoft.AspNet.Server.Kestrel.dll": {}
+        },
+        "native": {
+          "runtimes/win7-x64/native/libuv.dll": {}
         }
       },
       "Microsoft.AspNet.StaticFiles/1.0.0-rc1-final": {
@@ -5294,6 +5306,12 @@
         "dependencies": {
           "Newtonsoft.Json": "8.0.2",
           "System.Net.Http": "4.0.1-beta"
+        }
+      },
+      "runtime.win7.System.Net.Http/4.0.1-beta-23516": {
+        "type": "package",
+        "compile": {
+          "ref/dotnet/_._": {}
         }
       },
       "System.Collections/4.0.0": {
@@ -6833,8 +6851,6 @@
         "Npgsql.nuspec"
       ]
     },
-<<<<<<< HEAD
-=======
     "runtime.win7.System.Net.Http/4.0.1-beta-23516": {
       "type": "package",
       "serviceable": true,
@@ -6848,7 +6864,6 @@
         "runtimes/win7/lib/netcore50/System.Net.Http.dll"
       ]
     },
->>>>>>> 6989b29880e5df62bc9d2dc3dd60f2ba6b6427f4
     "System.Collections/4.0.0": {
       "type": "package",
       "sha512": "i2vsGDIEbWdHcUSNDPKZP/ZWod6o740el7mGTCy0dqbCxQh74W4QoC+klUwPEtGEFuvzJ7bJgvwJqscosVNyZQ==",

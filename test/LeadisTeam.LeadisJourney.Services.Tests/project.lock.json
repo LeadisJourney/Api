@@ -286,7 +286,7 @@
         }
       }
     },
-    "DNX,Version=v4.5.1/debian.8-x86": {
+    "DNX,Version=v4.5.1/win7-x86": {
       "LeadisTeam.LeadisJourney.Core/1.0.0-alpha": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
@@ -446,6 +446,12 @@
         "dependencies": {
           "Newtonsoft.Json": "8.0.2",
           "System.Net.Http": "4.0.1-beta"
+        }
+      },
+      "runtime.win7.System.Net.Http/4.0.1-beta-23516": {
+        "type": "package",
+        "compile": {
+          "ref/dotnet/_._": {}
         }
       },
       "System.Net.Http/4.0.1-beta-23516": {
@@ -570,7 +576,7 @@
         }
       }
     },
-    "DNX,Version=v4.5.1/debian.8-x64": {
+    "DNX,Version=v4.5.1/win7-x64": {
       "LeadisTeam.LeadisJourney.Core/1.0.0-alpha": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
@@ -730,6 +736,12 @@
         "dependencies": {
           "Newtonsoft.Json": "8.0.2",
           "System.Net.Http": "4.0.1-beta"
+        }
+      },
+      "runtime.win7.System.Net.Http/4.0.1-beta-23516": {
+        "type": "package",
+        "compile": {
+          "ref/dotnet/_._": {}
         }
       },
       "System.Net.Http/4.0.1-beta-23516": {
@@ -1010,8 +1022,6 @@
         "tools/install.ps1"
       ]
     },
-<<<<<<< HEAD
-=======
     "runtime.win7.System.Net.Http/4.0.1-beta-23516": {
       "type": "package",
       "serviceable": true,
@@ -1025,7 +1035,6 @@
         "runtimes/win7/lib/netcore50/System.Net.Http.dll"
       ]
     },
->>>>>>> 6989b29880e5df62bc9d2dc3dd60f2ba6b6427f4
     "System.Net.Http/4.0.1-beta-23516": {
       "type": "package",
       "serviceable": true,

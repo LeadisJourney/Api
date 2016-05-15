@@ -63,7 +63,7 @@ namespace LeadisTeam.LeadisJourney.Api
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-
+            
 			// disable because we do not target IIS engine
             //app.UseIISPlatformHandler();
             app.UseExceptionHandler(appBuilder => {

@@ -4,7 +4,7 @@ using NHibernate.Tool.hbm2ddl;
 namespace LeadisTeam.LeadisJourney.Repositories.Context {
 	public class LeadisJourneyContext : DbContext {
 		static LeadisJourneyContext() {
-			Configuration(DatabaseType.MySql, "localhost", 3306, "Leadis", "root", "specialitycoffee");
+			Configuration(DatabaseType.MySql, "localhost", 3306, "LeadisDB", "root", "specialitycoffee");
 			MappingsConfiguration(c =>
 			c.FluentMappings.AddFromAssemblyOf<AccountMap>().AddFromAssemblyOf<UserMap>().AddFromAssemblyOf<TutorialMap>()
 			.AddFromAssemblyOf<ExerciceSourceMap>().AddFromAssemblyOf<ExerciceMap>().AddFromAssemblyOf<GroupMap>()
