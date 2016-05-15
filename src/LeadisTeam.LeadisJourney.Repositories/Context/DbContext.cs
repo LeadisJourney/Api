@@ -47,7 +47,8 @@ namespace LeadisTeam.LeadisJourney.Repositories.Context {
 						.Database(MsSqlConfiguration.MsSql2012
 						.ConnectionString(c => c.Server(host)
 						.Database(database)
-						.TrustedConnection()));
+                        .Username(username)
+                        .Password(password)));
 					break;
 				case DatabaseType.MySql:
 					_fluentConfiguration = Fluently.Configure()

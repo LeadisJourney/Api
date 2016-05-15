@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using LeadisTeam.LeadisJourney.Api.Models;
 using LeadisTeam.LeadisJourney.Core.Repositories;
 using LeadisTeam.LeadisJourney.Services.Contracts;
+using Microsoft.AspNet.Cors;
 using Microsoft.AspNet.Mvc;
 
 
 namespace LeadisTeam.LeadisJourney.Api.Controllers
 {
+    [EnableCors("AllowAll")]
     [Route("v0.1/api/[controller]")]
     public class GroupController : Controller {
         private readonly IGroupService _groupService;

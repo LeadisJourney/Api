@@ -1,218 +1,207 @@
 
-    
-alter table accounts  drop foreign key FKF8F14CCF1F819813
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKF8F14CCF1F819813]') AND parent_object_id = OBJECT_ID('accounts'))
+alter table accounts  drop constraint FKF8F14CCF1F819813
 ;
 
-    
-alter table GroupToAccount  drop foreign key FK58803956B194A467
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK58803956B194A467]') AND parent_object_id = OBJECT_ID('GroupToAccount'))
+alter table GroupToAccount  drop constraint FK58803956B194A467
 ;
 
-    
-alter table GroupToAccount  drop foreign key FK588039562D71B1AD
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK588039562D71B1AD]') AND parent_object_id = OBJECT_ID('GroupToAccount'))
+alter table GroupToAccount  drop constraint FK588039562D71B1AD
 ;
 
-    
-alter table GroupToAdmins  drop foreign key FKF88E7DA02D71B1AD
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKF88E7DA02D71B1AD]') AND parent_object_id = OBJECT_ID('GroupToAdmins'))
+alter table GroupToAdmins  drop constraint FKF88E7DA02D71B1AD
 ;
 
-    
-alter table GroupToAdmins  drop foreign key FKF88E7DA0B194A467
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKF88E7DA0B194A467]') AND parent_object_id = OBJECT_ID('GroupToAdmins'))
+alter table GroupToAdmins  drop constraint FKF88E7DA0B194A467
 ;
 
-    
-alter table GroupToMembers  drop foreign key FK48884D412D71B1AD
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK48884D412D71B1AD]') AND parent_object_id = OBJECT_ID('GroupToMembers'))
+alter table GroupToMembers  drop constraint FK48884D412D71B1AD
 ;
 
-    
-alter table GroupToMembers  drop foreign key FK48884D41B194A467
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK48884D41B194A467]') AND parent_object_id = OBJECT_ID('GroupToMembers'))
+alter table GroupToMembers  drop constraint FK48884D41B194A467
 ;
 
-    
-alter table helpSources  drop foreign key FKD7F07FD581F50FA
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FKD7F07FD581F50FA]') AND parent_object_id = OBJECT_ID('helpSources'))
+alter table helpSources  drop constraint FKD7F07FD581F50FA
 ;
 
-    
-alter table tutorials  drop foreign key FK53D0E02281F50FA
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK53D0E02281F50FA]') AND parent_object_id = OBJECT_ID('tutorials'))
+alter table tutorials  drop constraint FK53D0E02281F50FA
 ;
 
-    
-alter table userExperiences  drop foreign key FK1E76E877E42E26F
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK1E76E877E42E26F]') AND parent_object_id = OBJECT_ID('userExperiences'))
+alter table userExperiences  drop constraint FK1E76E877E42E26F
 ;
 
-    
-alter table users  drop foreign key FK2C1C7C052D71B1AD
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK2C1C7C052D71B1AD]') AND parent_object_id = OBJECT_ID('users'))
+alter table users  drop constraint FK2C1C7C052D71B1AD
 ;
 
-    drop table if exists accounts;
+    if exists (select * from dbo.sysobjects where id = object_id(N'accounts') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table accounts;
 
-    drop table if exists GroupToAccount;
+    if exists (select * from dbo.sysobjects where id = object_id(N'GroupToAccount') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table GroupToAccount;
 
-    drop table if exists exercices;
+    if exists (select * from dbo.sysobjects where id = object_id(N'exercices') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table exercices;
 
-    drop table if exists exerciceSources;
+    if exists (select * from dbo.sysobjects where id = object_id(N'exerciceSources') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table exerciceSources;
 
-    drop table if exists groups;
+    if exists (select * from dbo.sysobjects where id = object_id(N'groups') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table groups;
 
-    drop table if exists GroupToAdmins;
+    if exists (select * from dbo.sysobjects where id = object_id(N'GroupToAdmins') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table GroupToAdmins;
 
-    drop table if exists GroupToMembers;
+    if exists (select * from dbo.sysobjects where id = object_id(N'GroupToMembers') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table GroupToMembers;
 
-    drop table if exists helpSources;
+    if exists (select * from dbo.sysobjects where id = object_id(N'helpSources') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table helpSources;
 
-    drop table if exists tutorials;
+    if exists (select * from dbo.sysobjects where id = object_id(N'tutorials') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tutorials;
 
-    drop table if exists tutorialSources;
+    if exists (select * from dbo.sysobjects where id = object_id(N'tutorialSources') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tutorialSources;
 
-    drop table if exists userExperiences;
+    if exists (select * from dbo.sysobjects where id = object_id(N'userExperiences') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table userExperiences;
 
-    drop table if exists users;
+    if exists (select * from dbo.sysobjects where id = object_id(N'users') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table users;
 
     create table accounts (
-        Id INTEGER not null,
-       Pseudo VARCHAR(255),
-       Email VARCHAR(255),
-       IsOwner TINYINT(1),
-       Password VARCHAR(255),
-       EntityState INTEGER,
-       User_id INTEGER unique,
+        Id INT not null,
+       Pseudo NVARCHAR(255) null,
+       Email NVARCHAR(255) null,
+       IsOwner BIT null,
+       Password NVARCHAR(255) null,
+       EntityState INT null,
+       User_id INT null unique,
        primary key (Id)
     );
 
     create table GroupToAccount (
-        Account_id INTEGER not null,
-       Group_id INTEGER not null
+        Account_id INT not null,
+       Group_id INT not null
     );
 
     create table exercices (
-        Id INTEGER not null,
-       Position INTEGER,
-       Title VARCHAR(255),
+        Id INT not null,
+       Position INT null,
+       Title NVARCHAR(255) null,
        primary key (Id)
     );
 
     create table exerciceSources (
-        Id INTEGER not null,
-       Content VARCHAR(255),
-       Type VARCHAR(255),
+        Id INT not null,
+       Content NVARCHAR(255) null,
+       Type NVARCHAR(255) null,
        primary key (Id)
     );
 
     create table groups (
-        Id INTEGER not null,
-       Name VARCHAR(255),
+        Id INT not null,
+       Name NVARCHAR(255) null,
        primary key (Id)
     );
 
     create table GroupToAdmins (
-        Group_id INTEGER not null,
-       Account_id INTEGER not null
+        Group_id INT not null,
+       Account_id INT not null
     );
 
     create table GroupToMembers (
-        Group_id INTEGER not null,
-       Account_id INTEGER not null
+        Group_id INT not null,
+       Account_id INT not null
     );
 
     create table helpSources (
-        Id INTEGER not null,
-       Content VARCHAR(255),
-       Type VARCHAR(255),
-       Exercice_id INTEGER,
+        Id INT not null,
+       Content NVARCHAR(255) null,
+       Type NVARCHAR(255) null,
+       Exercice_id INT null,
        primary key (Id)
     );
 
     create table tutorials (
-        Id INTEGER not null,
-       Title VARCHAR(255),
-       Exercice_id INTEGER,
+        Id INT not null,
+       Title NVARCHAR(255) null,
+       Exercice_id INT null,
        primary key (Id)
     );
 
     create table tutorialSources (
-        Id INTEGER not null,
-       Content VARCHAR(255),
-       Type VARCHAR(255),
+        Id INT not null,
+       Content NVARCHAR(255) null,
+       Type NVARCHAR(255) null,
        primary key (Id)
     );
 
     create table userExperiences (
-        Id INTEGER not null,
-       Code VARCHAR(255),
-       CreationDate DATETIME,
-       Creator_id INTEGER,
+        Id INT not null,
+       Code NVARCHAR(255) null,
+       CreationDate DATETIME null,
+       Creator_id INT null,
        primary key (Id)
     );
 
     create table users (
-        Id INTEGER not null,
-       FirstName VARCHAR(255),
-       Name VARCHAR(255),
-       Account_id INTEGER,
+        Id INT not null,
+       FirstName NVARCHAR(255) null,
+       Name NVARCHAR(255) null,
+       Account_id INT null,
        primary key (Id)
     );
 
     alter table accounts 
-        add index (User_id), 
         add constraint FKF8F14CCF1F819813 
         foreign key (User_id) 
-        references users (Id);
+        references users;
 
     alter table GroupToAccount 
-        add index (Group_id), 
         add constraint FK58803956B194A467 
         foreign key (Group_id) 
-        references groups (Id);
+        references groups;
 
     alter table GroupToAccount 
-        add index (Account_id), 
         add constraint FK588039562D71B1AD 
         foreign key (Account_id) 
-        references accounts (Id);
+        references accounts;
 
     alter table GroupToAdmins 
-        add index (Account_id), 
         add constraint FKF88E7DA02D71B1AD 
         foreign key (Account_id) 
-        references accounts (Id);
+        references accounts;
 
     alter table GroupToAdmins 
-        add index (Group_id), 
         add constraint FKF88E7DA0B194A467 
         foreign key (Group_id) 
-        references groups (Id);
+        references groups;
 
     alter table GroupToMembers 
-        add index (Account_id), 
         add constraint FK48884D412D71B1AD 
         foreign key (Account_id) 
-        references accounts (Id);
+        references accounts;
 
     alter table GroupToMembers 
-        add index (Group_id), 
         add constraint FK48884D41B194A467 
         foreign key (Group_id) 
-        references groups (Id);
+        references groups;
 
     alter table helpSources 
-        add index (Exercice_id), 
         add constraint FKD7F07FD581F50FA 
         foreign key (Exercice_id) 
-        references exercices (Id);
+        references exercices;
 
     alter table tutorials 
-        add index (Exercice_id), 
         add constraint FK53D0E02281F50FA 
         foreign key (Exercice_id) 
-        references exercices (Id);
+        references exercices;
 
     alter table userExperiences 
-        add index (Creator_id), 
         add constraint FK1E76E877E42E26F 
         foreign key (Creator_id) 
-        references accounts (Id);
+        references accounts;
 
     alter table users 
-        add index (Account_id), 
         add constraint FK2C1C7C052D71B1AD 
         foreign key (Account_id) 
         references accounts (User_id);

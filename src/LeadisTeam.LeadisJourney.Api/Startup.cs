@@ -43,6 +43,7 @@ namespace LeadisTeam.LeadisJourney.Api
 
             // Add framework services.
             services.AddMvc();
+            services.AddCors(option => option.AddPolicy("AllowAll", p => p.AllowAnyOrigin()));
 
 #if DNX451
 			// Adding ioc Autofac
@@ -86,9 +87,11 @@ namespace LeadisTeam.LeadisJourney.Api
 
             app.UseStaticFiles();
             app.UseJwtAuthentication(Path.Combine(_env.WebRootPath, "../Security"), "RsaKey.json", "noobs", "http://leadisjourney.fr");
+            app.UseCors("AllowAll");
             app.UseMvc();
 
- 
+
+
         }
 
         // Entry point for the application.
