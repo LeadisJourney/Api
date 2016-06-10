@@ -5,10 +5,10 @@ using Autofac.Extensions.DependencyInjection;
 using LeadisTeam.LeadisJourney.Api.Ioc;
 using LeadisTeam.LeadisJourney.Api.Models;
 using LeadisTeam.LeadisJourney.Api.Security;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Diagnostics;
-using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Http;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -25,6 +25,7 @@ namespace LeadisTeam.LeadisJourney.Api
             _env = env;
             // Set up configuration sources.
             var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json")
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
@@ -45,7 +46,6 @@ namespace LeadisTeam.LeadisJourney.Api
             services.AddMvc();
             services.AddCors(option => option.AddPolicy("AllowAll", p => p.AllowAnyOrigin()));
 
-#if DNX451
 			// Adding ioc Autofac
 			var containerBuilder = new ContainerBuilder();
 			containerBuilder.Populate(services);
@@ -53,9 +53,6 @@ namespace LeadisTeam.LeadisJourney.Api
 			containerBuilder.RegisterModule<GlobalRegistration>();
 			var container = containerBuilder.Build();
 			return container.Resolve<IServiceProvider>();
-#else
-	        return services.BuildServiceProvider();
-#endif
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -93,8 +90,5 @@ namespace LeadisTeam.LeadisJourney.Api
 
 
         }
-
-        // Entry point for the application.
-        public static void Main(string[] args) => WebApplication.Run<Startup>(args);
     }
 }

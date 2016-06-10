@@ -1,6 +1,6 @@
-﻿using System.IdentityModel.Tokens;
-using System.IO;
+﻿using System.IO;
 using System.Security.Cryptography;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 
 namespace LeadisTeam.LeadisJourney.Api.Security {

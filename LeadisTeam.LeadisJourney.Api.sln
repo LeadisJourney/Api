@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6F716DDB-0AD8-4450-9245-471D727D0A2E}"
 EndProject
@@ -27,10 +27,6 @@ EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LeadisTeam.LeadisJourney.Repositories.Tests", "test\LeadisTeam.LeadisJourney.Repositories.Tests\LeadisTeam.LeadisJourney.Repositories.Tests.xproj", "{793C8259-A1D9-4F4D-B541-8F92BFF0522F}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LeadisTeam.LeadisJourney.Api.Tests", "test\LeadisTeam.LeadisJourney.Api.Tests\LeadisTeam.LeadisJourney.Api.Tests.xproj", "{693628BE-6D24-47C5-B2AA-9D007C5EA378}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{672017BE-C6F3-48E2-85ED-05909DE3D75E}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Orion.ApiClientLight", "lib\Orion.ApiClientLight\Orion.ApiClientLight.xproj", "{3C647928-C851-402C-A876-3935DB160CE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,10 +66,6 @@ Global
 		{693628BE-6D24-47C5-B2AA-9D007C5EA378}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{693628BE-6D24-47C5-B2AA-9D007C5EA378}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{693628BE-6D24-47C5-B2AA-9D007C5EA378}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C647928-C851-402C-A876-3935DB160CE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C647928-C851-402C-A876-3935DB160CE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C647928-C851-402C-A876-3935DB160CE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C647928-C851-402C-A876-3935DB160CE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,6 +79,5 @@ Global
 		{14818E57-5C3C-4A98-A30B-5F639A044785} = {51BFCE1B-09A2-4CF4-96C7-C54171D3067B}
 		{793C8259-A1D9-4F4D-B541-8F92BFF0522F} = {51BFCE1B-09A2-4CF4-96C7-C54171D3067B}
 		{693628BE-6D24-47C5-B2AA-9D007C5EA378} = {51BFCE1B-09A2-4CF4-96C7-C54171D3067B}
-		{3C647928-C851-402C-A876-3935DB160CE5} = {672017BE-C6F3-48E2-85ED-05909DE3D75E}
 	EndGlobalSection
 EndGlobal

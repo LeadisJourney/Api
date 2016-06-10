@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.IdentityModel.Tokens;
+﻿using Microsoft.IdentityModel.Tokens;
 
 namespace LeadisTeam.LeadisJourney.Api.Security
 {

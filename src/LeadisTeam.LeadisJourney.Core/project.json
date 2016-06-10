@@ -2,20 +2,21 @@
     "version": "1.0.0-alpha",
     "description": "LeadisTeam.LeadisJourney.Core Class Library",
     "authors": [ "Manon" ],
-    "tags": [ "" ],
-    "projectUrl": "",
-    "licenseUrl": "",
-    "repository": { "type": "git" },
-  "frameworks": {
-    "dnx451": { },
-    "dnxcore50": {
-      "dependencies": {
-        "System.Runtime": "4.0.21-beta-23516",
-        "System.Linq.Expressions": "4.0.11-beta-*"
-      }
+    "packOptions": {
+        "projectUrl": "",
+        "licenseUrl": "",
+        "repository": { "type": "git" },
+        "tags": [ "" ]
+    },
+    "frameworks": {
+        "netstandard1.3": {
+            "imports": [ "dnxcore50", "dotnet5.6", "portable-net452+win81", "uap10" ],
+            "dependencies": {
+                "NETStandard.Library": "1.5.0-rc2-*"
+            }
+        }
+    },
+    "dependencies": {
+        "Orion.ApiClientLight": "1.0.1-beta2"
     }
-  },
-  "dependencies": {
-    "Orion.ApiClientLight": "1.0.0-beta1"
-  }
 }

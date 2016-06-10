@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using LeadisTeam.LeadisJourney.Api.Models;
 using LeadisTeam.LeadisJourney.Core.Repositories;
 using LeadisTeam.LeadisJourney.Services.Contracts;
-using Microsoft.AspNet.Cors;
-using Microsoft.AspNet.Mvc;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 
 
 namespace LeadisTeam.LeadisJourney.Api.Controllers
@@ -38,7 +35,7 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers
 
         // POST api/group
         [HttpPost]
-        public HttpOkResult Create([FromBody]CreateGroupModel res) {
+        public OkResult Create([FromBody]CreateGroupModel res) {
             _groupService.Create(res.Name, 1);
             _unitOfWork.Commit();
             return Ok();
@@ -46,7 +43,7 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers
 
         // PUT api/group/add/5
         [HttpPut("add/{id}")]
-        public HttpOkResult AddUser(int id, [FromBody]AddUserToGroupModel res) {
+        public OkResult AddUser(int id, [FromBody]AddUserToGroupModel res) {
             _groupService.AddUser(res.accountsId, id);
             _unitOfWork.Commit();
             return Ok();
@@ -54,7 +51,7 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers
 
         // PUT api/group/delete/5
         [HttpPut("delete/{id}")]
-        public HttpOkResult DeleteUser(int id, [FromBody]DeleteUserFromGroupModel res) {
+        public OkResult DeleteUser(int id, [FromBody]DeleteUserFromGroupModel res) {
             _groupService.DeleteUser(res.accountsId, id);
             _unitOfWork.Commit();
             return Ok();

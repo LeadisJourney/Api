@@ -3,9 +3,9 @@ using LeadisTeam.LeadisJourney.Api.Models;
 using LeadisTeam.LeadisJourney.Api.Security;
 using LeadisTeam.LeadisJourney.Core.Repositories;
 using LeadisTeam.LeadisJourney.Services.Contracts;
-using Microsoft.AspNet.Authorization;
-using Microsoft.AspNet.Cors;
-using Microsoft.AspNet.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 
 
 namespace LeadisTeam.LeadisJourney.Api.Controllers {
@@ -56,7 +56,7 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
 
         // POST api/account/
         [HttpPost]
-        public HttpOkResult Create([FromBody] CreateAccountModel res) {
+        public OkResult Create([FromBody] CreateAccountModel res) {
             _accountService.Create(res.Pseudo, res.Email, res.Name, res.FirstName, res.Password);
             _unitOfWork.Commit();
             return Ok();
@@ -64,7 +64,7 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
 
         // PUT api/account/5
         [HttpPut("{id}")]
-        public HttpOkResult Update(int id, [FromBody] UpdateAccountModel res) {
+        public OkResult Update(int id, [FromBody] UpdateAccountModel res) {
             _accountService.Update(id, res.Email, res.FirstName, res.Name, res.Password);
             _unitOfWork.Commit();
             return Ok();
@@ -72,7 +72,7 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
 
         // DELETE api/account/5
         [HttpDelete("{id}")]
-        public HttpOkResult Desactivate(int id) {
+        public OkResult Desactivate(int id) {
             _accountService.Desactivate(id);
             _unitOfWork.Commit();
             return Ok();

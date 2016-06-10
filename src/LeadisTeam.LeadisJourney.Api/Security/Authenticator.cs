@@ -1,8 +1,8 @@
 ﻿using System;
-using System.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Principal;
+using Microsoft.IdentityModel.Tokens;
 
 namespace LeadisTeam.LeadisJourney.Api.Security
 {
@@ -23,12 +23,13 @@ namespace LeadisTeam.LeadisJourney.Api.Security
             var identity = new ClaimsIdentity(new GenericIdentity(username, "TokenAuth"),
                 new[] { new Claim("EntityID", "1", ClaimValueTypes.Integer) });
 
-            var securityToken = _jwtSecurityTokenHandler.CreateToken(_tokenAuthOption.Issuer,
-                _tokenAuthOption.Audience,
-                signingCredentials: _tokenAuthOption.SigningCredentials,
-                subject: identity,
-                expires: expires
-                );
+            var securityToken = _jwtSecurityTokenHandler.CreateToken(new SecurityTokenDescriptor {
+                Audience = _tokenAuthOption.Audience,
+                Issuer = _tokenAuthOption.Issuer,
+                Subject = identity,
+                Expires = expires,
+                SigningCredentials = _tokenAuthOption.SigningCredentials
+            });
             return _jwtSecurityTokenHandler.WriteToken(securityToken);
         }
 
