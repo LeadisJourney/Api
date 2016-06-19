@@ -36,6 +36,8 @@ namespace LeadisTeam.LeadisJourney.Services
         }
 
 	    public void Create(string pseudo, string email, string name, string firstName, string password) {
+            if (_accountRepository.All().Any(a => a.Email.Equals(email)))
+                throw new InvalidOperationException();
             var account = new Account {
                 Email = email,
                 Password = Encrypt(password),
