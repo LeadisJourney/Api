@@ -36,7 +36,7 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
 
         [HttpPost, Route("login")]
         public LoginAccountModel.Response Login([FromBody] LoginAccountModel res) {
-            if (res.Email.Equals("user") && res.Password.Equals("pwd")) {
+            if (_accountService.signIn(res.Email, res.Password)) {
                 var token = _authenticator.GetToken(res.Email, DateTime.UtcNow.AddYears(1));
                 return new LoginAccountModel.Response {
                     Token = token

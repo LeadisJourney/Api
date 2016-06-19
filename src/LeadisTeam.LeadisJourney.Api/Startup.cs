@@ -39,7 +39,7 @@ namespace LeadisTeam.LeadisJourney.Api
         {
 
             #region Token Bearer
-            services.AddJwtAuthentication(Path.Combine(_env.WebRootPath, "../Security"), "RsaKey.json", "noobs", "http://leadisjourney.fr");
+            services.AddJwtAuthentication(Path.Combine(_env.ContentRootPath, "./Security"), "RsaKey.json", "noobs", "http://leadisjourney.fr");
             #endregion
 
             // Add framework services.
@@ -83,7 +83,7 @@ namespace LeadisTeam.LeadisJourney.Api
             });
 
             app.UseStaticFiles();
-            app.UseJwtAuthentication(Path.Combine(_env.WebRootPath, "../Security"), "RsaKey.json", "noobs", "http://leadisjourney.fr");
+            app.UseJwtAuthentication(Path.Combine(_env.ContentRootPath, "./Security"), "RsaKey.json", "noobs", "http://leadisjourney.fr");
             app.UseCors("AllowAll");
             app.UseMvc();
 

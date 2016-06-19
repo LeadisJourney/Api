@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using LeadisTeam.LeadisJourney.Core.Entities;
 using LeadisTeam.LeadisJourney.Core.Repositories;
@@ -71,6 +73,14 @@ namespace LeadisTeam.LeadisJourney.Services
             var account = _accountRepository.FindBy(id);
             account.EntityState = EntityState.Desactivated;
             _accountRepository.Save(account);
+        }
+
+        public bool signIn(string email, string password)
+        {
+            var pwd = Encrypt(password);
+            if (_accountRepository.All().FirstOrDefault(s => s.Email.Equals(email) && s.Password.Equals(pwd)) != null)
+                return true;
+            return false;
         }
     }
 }
