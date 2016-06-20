@@ -35,9 +35,11 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
         }
 
         [HttpPost, Route("login")]
-        public LoginAccountModel.Response Login([FromBody] LoginAccountModel res) {
-            if (_accountService.signIn(res.Email, res.Password)) {
-                var token = _authenticator.GetToken(res.Email, DateTime.UtcNow.AddYears(1));
+        public LoginAccountModel.Response Login([FromBody] LoginAccountModel res)
+        {
+            var user = _accountService.signIn(res.Email, res.Password);
+            if (user != null) {
+                var token = _authenticator.GetToken(user, DateTime.UtcNow.AddYears(1));
                 return new LoginAccountModel.Response {
                     Token = token
                 };
@@ -64,6 +66,7 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
 
         // PUT api/account/5
         [HttpPut("{id}")]
+        [Authorize("Bearer")]
         public OkResult Update(int id, [FromBody] UpdateAccountModel res) {
             _accountService.Update(id, res.Email, res.FirstName, res.Name, res.Password);
             _unitOfWork.Commit();
@@ -72,6 +75,7 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
 
         // DELETE api/account/5
         [HttpDelete("{id}")]
+        [Authorize("Bearer")]
         public OkResult Desactivate(int id) {
             _accountService.Desactivate(id);
             _unitOfWork.Commit();

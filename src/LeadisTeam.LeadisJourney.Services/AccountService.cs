@@ -77,12 +77,10 @@ namespace LeadisTeam.LeadisJourney.Services
             _accountRepository.Save(account);
         }
 
-        public bool signIn(string email, string password)
+        public Account signIn(string email, string password)
         {
             var pwd = Encrypt(password);
-            if (_accountRepository.All().FirstOrDefault(s => s.Email.Equals(email) && s.Password.Equals(pwd)) != null)
-                return true;
-            return false;
+            return _accountRepository.All().FirstOrDefault(s => s.Email.Equals(email) && s.Password.Equals(pwd));
         }
     }
 }

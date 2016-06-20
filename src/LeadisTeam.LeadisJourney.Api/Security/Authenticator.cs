@@ -16,12 +16,12 @@ namespace LeadisTeam.LeadisJourney.Api.Security
             _jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
         }
 
-        public string GetToken(string username, DateTime? expires) {
+        public string GetToken(Account user, DateTime? expires) {
 
             // Here, you should create or look up an identity for the user which is being authenticated.
             // For now, just creating a simple generic identity.
-            var identity = new ClaimsIdentity(new GenericIdentity(username, "TokenAuth"),
-                new[] { new Claim("EntityID", "1", ClaimValueTypes.Integer) });
+            var identity = new ClaimsIdentity(new GenericIdentity(user, "TokenAuth"),
+                new[] { new Claim("UserId", "1", ClaimValueTypes.Integer) });
 
             var securityToken = _jwtSecurityTokenHandler.CreateToken(new SecurityTokenDescriptor {
                 Audience = _tokenAuthOption.Audience,
