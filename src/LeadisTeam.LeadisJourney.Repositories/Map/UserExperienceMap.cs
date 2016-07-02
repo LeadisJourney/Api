@@ -7,8 +7,7 @@ namespace LeadisTeam.LeadisJourney.Repositories.Map
         public UserExperienceMap() {
             Id(userExperience => userExperience.Id).GeneratedBy.Increment();
             Map(c => c.Code);
-            Map(c => c.CreationDate);
-            References(c => c.Creator);
+//missing arguments
             Table("userExperiences");
         }
     }

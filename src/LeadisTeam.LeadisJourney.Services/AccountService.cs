@@ -77,7 +77,7 @@ namespace LeadisTeam.LeadisJourney.Services
             _accountRepository.Save(account);
         }
 
-        public Account signIn(string email, string password)
+        public Account SignIn(string email, string password)
         {
             var pwd = Encrypt(password);
             return _accountRepository.All().FirstOrDefault(s => s.Email.Equals(email) && s.Password.Equals(pwd));

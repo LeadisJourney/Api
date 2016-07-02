@@ -7,15 +7,15 @@
         "projectUrl": "",
         "licenseUrl": ""
     },
-    "dependencies": {
-        "LeadisTeam.LeadisJourney.Core": "1.0.0-alpha"
-    },
+  "dependencies": {
+    "LeadisTeam.LeadisJourney.Core": "1.0.0-alpha",
+    "NETStandard.Library": "1.6.0",
+    "System.Security.Cryptography.Algorithms": "4.2.0"
+  },
     "frameworks": {
         "netstandard1.3": {
             "imports": [ "dnxcore50", "dotnet5.6", "portable-net452+win81", "uap10" ],
             "dependencies": {
-                "NETStandard.Library": "1.5.0-rc2-*",
-                "System.Security.Cryptography.Algorithms": "4.1.0-rc2-*"
             }
         } 
     }

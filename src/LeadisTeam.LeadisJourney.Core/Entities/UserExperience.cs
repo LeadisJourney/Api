@@ -6,12 +6,9 @@ namespace LeadisTeam.LeadisJourney.Core.Entities
     public class UserExperience : IEntity
     {
         public virtual int Id { get; set; }
-        public virtual Account Creator { get; set; }
-        public virtual DateTime CreationDate { get; set; }
+        public virtual string RequestId { get; set; }
+        public virtual string UserId { get; set; }
+        public virtual string Language { get; set; }
         public virtual string Code { get; set; }
-
-        //private String etat;  etat ?
-        //private ExperienceResult result;
-        //ExperienceResult ? UserExperienceTreatement ?
     }
 }

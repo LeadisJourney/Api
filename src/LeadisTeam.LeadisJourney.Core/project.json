@@ -9,14 +9,14 @@
         "tags": [ "" ]
     },
     "frameworks": {
-        "netstandard1.3": {
+        "netstandard1.1": {
             "imports": [ "dnxcore50", "dotnet5.6", "portable-net452+win81", "uap10" ],
             "dependencies": {
-                "NETStandard.Library": "1.5.0-rc2-*"
             }
         }
     },
-    "dependencies": {
-        "Orion.ApiClientLight": "1.0.1-beta2"
-    }
+  "dependencies": {
+    "NETStandard.Library": "1.6.0",
+    "Orion.ApiClientLight": "1.0.1-beta2"
+  }
 }

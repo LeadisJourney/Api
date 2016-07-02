@@ -36,7 +36,7 @@ alter table tutorials  drop foreign key FKE595C8678A5155E4
 ;
 
     
-alter table userExperiences  drop foreign key FKC8F5034E352B6C1
+alter table userExperiences  drop foreign key FKC8F5034E18195D0C
 ;
 
     
@@ -138,8 +138,7 @@ alter table users  drop foreign key FK617CBC1A18195D0C
     create table userExperiences (
         Id INTEGER not null,
        Code VARCHAR(255),
-       CreationDate DATETIME,
-       Creator_id INTEGER,
+       Account_id INTEGER,
        primary key (Id)
     );
 
@@ -206,9 +205,9 @@ alter table users  drop foreign key FK617CBC1A18195D0C
         references exercices (Id);
 
     alter table userExperiences 
-        add index (Creator_id), 
-        add constraint FKC8F5034E352B6C1 
-        foreign key (Creator_id) 
+        add index (Account_id), 
+        add constraint FKC8F5034E18195D0C 
+        foreign key (Account_id) 
         references accounts (Id);
 
     alter table users 

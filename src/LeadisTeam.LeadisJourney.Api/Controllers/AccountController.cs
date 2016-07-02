@@ -37,7 +37,7 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
         [HttpPost, Route("login")]
         public LoginAccountModel.Response Login([FromBody] LoginAccountModel res)
         {
-            var user = _accountService.signIn(res.Email, res.Password);
+            var user = _accountService.SignIn(res.Email, res.Password);
             if (user != null) {
                 var token = _authenticator.GetToken(user, DateTime.UtcNow.AddYears(1));
                 return new LoginAccountModel.Response {

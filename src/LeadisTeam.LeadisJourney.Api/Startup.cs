@@ -44,7 +44,13 @@ namespace LeadisTeam.LeadisJourney.Api
 
             // Add framework services.
             services.AddMvc();
-            services.AddCors(option => option.AddPolicy("AllowAll", p => p.AllowAnyOrigin()));
+            services.AddCors(option => option.AddPolicy("AllowAll", p =>
+            {
+                p.AllowAnyOrigin();
+                p.AllowCredentials();
+                p.AllowAnyMethod();
+                p.AllowAnyHeader();
+            }));
 
 			// Adding ioc Autofac
 			var containerBuilder = new ContainerBuilder();
