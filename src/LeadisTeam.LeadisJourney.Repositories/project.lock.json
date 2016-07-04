@@ -714,16 +714,15 @@
       },
       "LeadisTeam.LeadisJourney.Core/1.0.0-alpha": {
         "type": "project",
-        "framework": ".NETStandard,Version=v1.1",
+        "framework": ".NETFramework,Version=v4.6",
         "dependencies": {
-          "NETStandard.Library": "1.6.0",
           "Orion.ApiClientLight": "1.0.1-beta2"
         },
         "compile": {
-          "netstandard1.1/LeadisTeam.LeadisJourney.Core.dll": {}
+          "net46/LeadisTeam.LeadisJourney.Core.dll": {}
         },
         "runtime": {
-          "netstandard1.1/LeadisTeam.LeadisJourney.Core.dll": {}
+          "net46/LeadisTeam.LeadisJourney.Core.dll": {}
         }
       }
     }

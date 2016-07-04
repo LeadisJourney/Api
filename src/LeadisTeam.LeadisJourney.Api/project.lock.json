@@ -2216,16 +2216,15 @@
       },
       "LeadisTeam.LeadisJourney.Core/1.0.0-alpha": {
         "type": "project",
-        "framework": ".NETStandard,Version=v1.1",
+        "framework": ".NETFramework,Version=v4.6",
         "dependencies": {
-          "NETStandard.Library": "1.6.0",
           "Orion.ApiClientLight": "1.0.1-beta2"
         },
         "compile": {
-          "netstandard1.1/LeadisTeam.LeadisJourney.Core.dll": {}
+          "net46/LeadisTeam.LeadisJourney.Core.dll": {}
         },
         "runtime": {
-          "netstandard1.1/LeadisTeam.LeadisJourney.Core.dll": {}
+          "net46/LeadisTeam.LeadisJourney.Core.dll": {}
         }
       },
       "LeadisTeam.LeadisJourney.Repositories/1.0.0-alpha": {
@@ -2251,17 +2250,16 @@
       },
       "LeadisTeam.LeadisJourney.Services/1.0.0-alpha": {
         "type": "project",
-        "framework": ".NETStandard,Version=v1.3",
+        "framework": ".NETFramework,Version=v4.6",
         "dependencies": {
-          "LeadisTeam.LeadisJourney.Core": "1.0.0-alpha",
-          "NETStandard.Library": "1.6.0",
+          "LeadisTeam.LeadisJourney.Core": "1.0.0",
           "System.Security.Cryptography.Algorithms": "4.2.0"
         },
         "compile": {
-          "netstandard1.3/LeadisTeam.LeadisJourney.Services.dll": {}
+          "net46/LeadisTeam.LeadisJourney.Services.dll": {}
         },
         "runtime": {
-          "netstandard1.3/LeadisTeam.LeadisJourney.Services.dll": {}
+          "net46/LeadisTeam.LeadisJourney.Services.dll": {}
         }
       }
     }

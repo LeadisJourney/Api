@@ -1,22 +1,26 @@
 {
-    "version": "1.0.0-alpha",
-    "description": "LeadisTeam.LeadisJourney.Services Class Library",
-    "authors": [ "Manon" ],
-    "packOptions": {
-        "tags": [ "" ],
-        "projectUrl": "",
-        "licenseUrl": ""
-    },
+  "version": "1.0.0-alpha",
+  "description": "LeadisTeam.LeadisJourney.Services Class Library",
+  "authors": [ "Manon" ],
+  "packOptions": {
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": ""
+  },
   "dependencies": {
-    "LeadisTeam.LeadisJourney.Core": "1.0.0-alpha",
-    "NETStandard.Library": "1.6.0",
+    "LeadisTeam.LeadisJourney.Core": {
+      "target": "project",
+      "version": "1.0.0-*"
+    },
     "System.Security.Cryptography.Algorithms": "4.2.0"
   },
-    "frameworks": {
-        "netstandard1.3": {
-            "imports": [ "dnxcore50", "dotnet5.6", "portable-net452+win81", "uap10" ],
-            "dependencies": {
-            }
-        } 
-    }
+  "frameworks": {
+    "netstandard1.3": {
+      "imports": [ "dnxcore50", "portable-net46+win81" ],
+      "dependencies": {
+        "NETStandard.Library": "1.6.0"
+      }
+    },
+    "net46": {}
+  }
 }
