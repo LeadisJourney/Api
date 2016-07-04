@@ -1,22 +1,22 @@
 ﻿{
-    "version": "1.0.0-*",
-    "description": "LeadisTeam.LeadisJourney.Core.Tests Class Library",
-    "authors": [ "Licate", "Maxfoow" ],
-    "packOptions": {
-        "tags": [ "" ],
-        "projectUrl": "",
-        "licenseUrl": ""
-    },
-    "testRunner": "xunit",
-    "dependencies": {
-        "xunit": "2.1.0",
-        "dotnet-test-xunit": "1.0.0-rc2-build10025",
-        "Moq": "4.2.1510.2205",
-        "LeadisTeam.LeadisJourney.Core": "1.0.0-*"
-    },
-    "frameworks": {
-        "net46": {
-            "Microsoft.NETCore.Platforms": "1.0.1-rc2-*"
-        }
+  "version": "1.0.0-*",
+  "description": "LeadisTeam.LeadisJourney.Core.Tests Class Library",
+  "authors": [ "Licate", "Maxfoow" ],
+  "packOptions": {
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": ""
+  },
+  "testRunner": "xunit",
+  "dependencies": {
+    "xunit": "2.1.0",
+    "dotnet-test-xunit": "1.0.0-rc2-build10025",
+    "Moq": "4.5.10",
+    "LeadisTeam.LeadisJourney.Core": "1.0.0-*"
+  },
+  "frameworks": {
+    "net46": {
+      "Microsoft.NETCore.Platforms": "1.0.1"
     }
+  }
 }
