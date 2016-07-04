@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using LeadisTeam.LeadisJourney.Core.Entities;
 using LeadisTeam.LeadisJourney.Core.Repositories;
-using LeadisTeam.LeadisJourney.Repositories.Context;
+using LeadisTeam.LeadisJourney.Repositories.NHibernate;
 using NHibernate;
 using NHibernate.Linq;
 
@@ -13,12 +13,9 @@ namespace LeadisTeam.LeadisJourney.Repositories
     public class Repository<TEntity> : IPersistRepository<TEntity>, IReadOnlyRepository<TEntity> where TEntity : IEntity {
 	    private readonly ISession _session;
 
-	    public Repository(DbContext dbContext) {
-		    if (dbContext == null) {
-			    throw new ArgumentNullException(nameof(dbContext));
-		    }
-		    _session = dbContext.Session;
-	    }
+	    public Repository(IScopeFactory scopeFactory) {
+		    _session = scopeFactory.Create();
+        }
 
 	    public void Save(TEntity entity) {
 		    _session.SaveOrUpdate(entity);

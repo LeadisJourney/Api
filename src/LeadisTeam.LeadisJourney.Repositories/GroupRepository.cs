@@ -1,10 +1,10 @@
 ﻿using LeadisTeam.LeadisJourney.Core.Entities;
 using LeadisTeam.LeadisJourney.Core.Repositories;
-using LeadisTeam.LeadisJourney.Repositories.Context;
+using LeadisTeam.LeadisJourney.Repositories.NHibernate;
 
 namespace LeadisTeam.LeadisJourney.Repositories {
     public class GroupRepository : Repository<Group>, IGroupRepository {
-        public GroupRepository(DbContext dbContext) : base(dbContext) {
+        public GroupRepository(IScopeFactory scopeFactory) : base(scopeFactory) {
         }
     }
 }

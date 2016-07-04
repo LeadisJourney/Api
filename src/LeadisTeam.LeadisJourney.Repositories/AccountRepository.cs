@@ -1,11 +1,11 @@
 ﻿using LeadisTeam.LeadisJourney.Core.Entities;
 using LeadisTeam.LeadisJourney.Core.Repositories;
-using LeadisTeam.LeadisJourney.Repositories.Context;
+using LeadisTeam.LeadisJourney.Repositories.NHibernate;
 
 namespace LeadisTeam.LeadisJourney.Repositories
 {
     public class AccountRepository : Repository<Account>, IAccountRepository {
-        public AccountRepository(DbContext dbContext) : base(dbContext) {
+        public AccountRepository(IScopeFactory scopeFactory) : base(scopeFactory) {
         }
     }
 }

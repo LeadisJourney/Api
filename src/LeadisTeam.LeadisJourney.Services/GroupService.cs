@@ -21,6 +21,7 @@ namespace LeadisTeam.LeadisJourney.Services
             };
             var account = _accountRepository.FindBy(adminId);
             group.Admins = new List<Account>();
+            group.Members = new List<Account>();
             group.Members.Add(account);
             group.Admins.Add(account);
             _groupRepository.Save(group);

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using LeadisTeam.LeadisJourney.Api.Models;
-using LeadisTeam.LeadisJourney.Core.Repositories;
+using LeadisTeam.LeadisJourney.Repositories.NHibernate;
 using LeadisTeam.LeadisJourney.Services.Contracts;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -10,13 +10,12 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers
 {
     [EnableCors("AllowAll")]
     [Route("v0.1/api/[controller]")]
-    public class GroupController : Controller {
+    public class GroupController : ApiController {
         private readonly IGroupService _groupService;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public GroupController(IGroupService groupService, IUnitOfWork unitOfWork) {
+        public GroupController(IScopeFactory scopeFactory, IGroupService groupService) 
+            : base(scopeFactory) {
             _groupService = groupService;
-            _unitOfWork = unitOfWork;
         }
 
         // GET: api/values
@@ -37,7 +36,6 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers
         [HttpPost]
         public OkResult Create([FromBody]CreateGroupModel res) {
             _groupService.Create(res.Name, 1);
-            _unitOfWork.Commit();
             return Ok();
         }
 
@@ -45,7 +43,6 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers
         [HttpPut("add/{id}")]
         public OkResult AddUser(int id, [FromBody]AddUserToGroupModel res) {
             _groupService.AddUser(res.accountsId, id);
-            _unitOfWork.Commit();
             return Ok();
         }
 
@@ -53,7 +50,6 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers
         [HttpPut("delete/{id}")]
         public OkResult DeleteUser(int id, [FromBody]DeleteUserFromGroupModel res) {
             _groupService.DeleteUser(res.accountsId, id);
-            _unitOfWork.Commit();
             return Ok();
         }
 
