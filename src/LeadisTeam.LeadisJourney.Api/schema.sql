@@ -12,19 +12,11 @@ alter table GroupToAccount  drop foreign key FK589DA7B918195D0C
 ;
 
     
-alter table GroupToAdmins  drop foreign key FK5649E31018195D0C
+alter table AccountToGroup  drop foreign key FKB9A9CD6518195D0C
 ;
 
     
-alter table GroupToAdmins  drop foreign key FK5649E310CFB9D93E
-;
-
-    
-alter table GroupToMembers  drop foreign key FKDB8A38C718195D0C
-;
-
-    
-alter table GroupToMembers  drop foreign key FKDB8A38C7CFB9D93E
+alter table AccountToGroup  drop foreign key FKB9A9CD65CFB9D93E
 ;
 
     
@@ -53,9 +45,7 @@ alter table users  drop foreign key FK617CBC1A18195D0C
 
     drop table if exists groups;
 
-    drop table if exists GroupToAdmins;
-
-    drop table if exists GroupToMembers;
+    drop table if exists AccountToGroup;
 
     drop table if exists helpSources;
 
@@ -103,12 +93,7 @@ alter table users  drop foreign key FK617CBC1A18195D0C
        primary key (Id)
     );
 
-    create table GroupToAdmins (
-        Group_id INTEGER not null,
-       Account_id INTEGER not null
-    );
-
-    create table GroupToMembers (
+    create table AccountToGroup (
         Group_id INTEGER not null,
        Account_id INTEGER not null
     );
@@ -168,27 +153,15 @@ alter table users  drop foreign key FK617CBC1A18195D0C
         foreign key (Account_id) 
         references accounts (Id);
 
-    alter table GroupToAdmins 
+    alter table AccountToGroup 
         add index (Account_id), 
-        add constraint FK5649E31018195D0C 
+        add constraint FKB9A9CD6518195D0C 
         foreign key (Account_id) 
         references accounts (Id);
 
-    alter table GroupToAdmins 
+    alter table AccountToGroup 
         add index (Group_id), 
-        add constraint FK5649E310CFB9D93E 
-        foreign key (Group_id) 
-        references groups (Id);
-
-    alter table GroupToMembers 
-        add index (Account_id), 
-        add constraint FKDB8A38C718195D0C 
-        foreign key (Account_id) 
-        references accounts (Id);
-
-    alter table GroupToMembers 
-        add index (Group_id), 
-        add constraint FKDB8A38C7CFB9D93E 
+        add constraint FKB9A9CD65CFB9D93E 
         foreign key (Group_id) 
         references groups (Id);
 

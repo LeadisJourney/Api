@@ -6,10 +6,10 @@ namespace LeadisTeam.LeadisJourney.Services
 {
     public class UserExperienceService : IUserExperienceService
     {
-        public Task<StatusExerciceModel> ManageCodeAsync(string code, string language, string requestId, string userId, string type) //userId = Token de la session user
+        public Task<StatusExerciceModel> ManageCodeAsync(string code, string language, string requestId, string userId, string type, string exercise) //userId = Token de la session user
         {
             var backendCommunication = new BackendCommunication();
-            return backendCommunication.ToCompilatorAsync(userId, requestId, code, language, type);
+            return backendCommunication.ToCompilatorAsync(userId, requestId, code, language, type, exercise);
         }
     }
 }

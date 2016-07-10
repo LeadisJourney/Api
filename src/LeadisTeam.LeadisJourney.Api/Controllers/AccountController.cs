@@ -1,7 +1,7 @@
 ﻿using System;
 using LeadisTeam.LeadisJourney.Api.Models;
 using LeadisTeam.LeadisJourney.Api.Security;
-using LeadisTeam.LeadisJourney.Core.Repositories;
+using LeadisTeam.LeadisJourney.Repositories.NHibernate;
 using LeadisTeam.LeadisJourney.Services.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -11,14 +11,15 @@ using Microsoft.AspNetCore.Mvc;
 namespace LeadisTeam.LeadisJourney.Api.Controllers {
     [EnableCors("AllowAll")]
     [Route("v0.1/api/[controller]")]
-    public class AccountController : Controller {
+    public class AccountController : ApiController {
         private readonly IAccountService _accountService;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly Authenticator _authenticator;
 
-        public AccountController(IAccountService accountService, IUnitOfWork unitOfWork, Authenticator authenticator) {
+        public AccountController(IScopeFactory scopeFactory, 
+            IAccountService accountService, 
+            Authenticator authenticator) 
+            : base(scopeFactory) {
             _accountService = accountService;
-            _unitOfWork = unitOfWork;
             _authenticator = authenticator;
         }
 
@@ -60,7 +61,6 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
         [HttpPost]
         public OkResult Create([FromBody] CreateAccountModel res) {
             _accountService.Create(res.Pseudo, res.Email, res.Name, res.FirstName, res.Password);
-            _unitOfWork.Commit();
             return Ok();
         }
 
@@ -69,7 +69,6 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
         [Authorize("Bearer")]
         public OkResult Update(int id, [FromBody] UpdateAccountModel res) {
             _accountService.Update(id, res.Email, res.FirstName, res.Name, res.Password);
-            _unitOfWork.Commit();
             return Ok();
         }
 
@@ -78,7 +77,6 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
         [Authorize("Bearer")]
         public OkResult Desactivate(int id) {
             _accountService.Desactivate(id);
-            _unitOfWork.Commit();
             return Ok();
         }
     }

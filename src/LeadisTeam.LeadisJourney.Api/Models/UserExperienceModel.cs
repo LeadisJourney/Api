@@ -11,6 +11,7 @@ namespace LeadisTeam.LeadisJourney.Api.Models
         public string Language { get; set; } // C or C++
         public string Type { get; set; } // Compilation or Execution
         public string RequestId { get; set; } // Generée par Thomas
+        public string Exercise { get; set; }
         public class Response
         {
             public string Status { get; set; }

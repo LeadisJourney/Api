@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using LeadisTeam.LeadisJourney.Core.Entities;
 using LeadisTeam.LeadisJourney.Core.Repositories;
-using LeadisTeam.LeadisJourney.Repositories.Context;
+using LeadisTeam.LeadisJourney.Repositories.NHibernate;
 
 namespace LeadisTeam.LeadisJourney.Repositories {
     public class SourceRepository : ISourceRepository {
@@ -12,10 +12,10 @@ namespace LeadisTeam.LeadisJourney.Repositories {
         private readonly HelpSourceRepository _helpSourceRepository;
         private readonly ExerciceSourceRepository _exerciceSourceRepository;
 
-        public SourceRepository(DbContext dbContext) {
-            _helpSourceRepository = new HelpSourceRepository(dbContext);
-            _tutorialSourceRepository = new TutorialSourceRepository(dbContext);
-            _exerciceSourceRepository = new ExerciceSourceRepository(dbContext);
+        public SourceRepository(IScopeFactory scopeFactory) {
+            _helpSourceRepository = new HelpSourceRepository(scopeFactory);
+            _tutorialSourceRepository = new TutorialSourceRepository(scopeFactory);
+            _exerciceSourceRepository = new ExerciceSourceRepository(scopeFactory);
         }
 
         private void Call(Source source, string methodName) {
@@ -91,17 +91,17 @@ namespace LeadisTeam.LeadisJourney.Repositories {
     }
 
     internal class ExerciceSourceRepository : Repository<ExerciceSource> {
-        public ExerciceSourceRepository(DbContext dbContext) : base(dbContext) {
+        public ExerciceSourceRepository(IScopeFactory scopeFactory) : base(scopeFactory) {
         }
     }
 
     internal class TutorialSourceRepository : Repository<TutorialSource> {
-        public TutorialSourceRepository(DbContext dbContext) : base(dbContext) {
+        public TutorialSourceRepository(IScopeFactory scopeFactory) : base(scopeFactory) {
         }
     }
 
     internal class HelpSourceRepository : Repository<HelpSource> {
-        public HelpSourceRepository(DbContext dbContext) : base(dbContext) {
+        public HelpSourceRepository(IScopeFactory scopeFactory) : base(scopeFactory) {
         }
     }
 }

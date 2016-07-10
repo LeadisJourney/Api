@@ -39,7 +39,8 @@
       "Views",
       "appsettings.json",
       "web.config",
-      "Security/RsaKey.json"
+      "Security/RsaKey.json",
+      "appsettings.Staging.json"
     ]
   },
 

@@ -5,6 +5,7 @@ using Autofac.Extensions.DependencyInjection;
 using LeadisTeam.LeadisJourney.Api.Ioc;
 using LeadisTeam.LeadisJourney.Api.Models;
 using LeadisTeam.LeadisJourney.Api.Security;
+using LeadisTeam.LeadisJourney.Repositories.NHibernate;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +28,7 @@ namespace LeadisTeam.LeadisJourney.Api
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json")
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
@@ -41,6 +43,8 @@ namespace LeadisTeam.LeadisJourney.Api
             #region Token Bearer
             services.AddJwtAuthentication(Path.Combine(_env.ContentRootPath, "./Security"), "RsaKey.json", "noobs", "http://leadisjourney.fr");
             #endregion
+
+            services.AddNHibernate(Configuration.GetConnectionString("type"), Configuration.GetConnectionString("DefaultConnection"));
 
             // Add framework services.
             services.AddMvc();

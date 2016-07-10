@@ -195,3 +195,4 @@ FakesAssemblies/
 # Visual Studio 6 workspace options file
 *.opt
 /src/LeadisTeam.LeadisJourney.Api/Properties/PublishProfiles
+/src/LeadisTeam.LeadisJourney.Api/appsettings.Staging.json
