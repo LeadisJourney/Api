@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using LeadisTeam.LeadisJourney.Core.Entities;
 using LeadisTeam.LeadisJourney.Core.Repositories;
 using LeadisTeam.LeadisJourney.Services.Contracts;
+using LeadisTeam.LeadisJourney.Services.Exceptions;
 
 namespace LeadisTeam.LeadisJourney.Services
 {
@@ -37,7 +38,10 @@ namespace LeadisTeam.LeadisJourney.Services
 
 	    public void Create(string pseudo, string email, string name, string firstName, string password) {
             if (_accountRepository.All().Any(a => a.Email.Equals(email)))
-                throw new InvalidOperationException();
+                throw new ExistingEmailException();
+            else if (_accountRepository.All().Any(b => b.Pseudo.Equals(pseudo)))
+	            throw new ExistingPseudoException();
+     
             var account = new Account {
                 Email = email,
                 Password = Encrypt(password),
@@ -55,8 +59,9 @@ namespace LeadisTeam.LeadisJourney.Services
 
         public void Update(int id, string email, string firstName, string name, string password) {
             var account = _accountRepository.FindBy(id);
-            if (account == null) {
-                throw new ArgumentException(nameof(id));
+            if (account == null)
+            {
+                throw new BadIdException();
             }
             account.Email = email;
             account.Password = Encrypt(password);

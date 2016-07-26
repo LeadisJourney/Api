@@ -6,6 +6,7 @@ using LeadisTeam.LeadisJourney.Api.Ioc;
 using LeadisTeam.LeadisJourney.Api.Models;
 using LeadisTeam.LeadisJourney.Api.Security;
 using LeadisTeam.LeadisJourney.Repositories.NHibernate;
+using LeadisTeam.LeadisJourney.Services.Exceptions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
@@ -56,13 +57,13 @@ namespace LeadisTeam.LeadisJourney.Api
                 p.AllowAnyHeader();
             }));
 
-			// Adding ioc Autofac
-			var containerBuilder = new ContainerBuilder();
-			containerBuilder.Populate(services);
+            // Adding ioc Autofac
+            var containerBuilder = new ContainerBuilder();
+            containerBuilder.Populate(services);
 
-			containerBuilder.RegisterModule<GlobalRegistration>();
-			var container = containerBuilder.Build();
-			return container.Resolve<IServiceProvider>();
+            containerBuilder.RegisterModule<GlobalRegistration>();
+            var container = containerBuilder.Build();
+            return container.Resolve<IServiceProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,22 +71,43 @@ namespace LeadisTeam.LeadisJourney.Api
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-            
-			// disable because we do not target IIS engine
+
+            // disable because we do not target IIS engine
             //app.UseIISPlatformHandler();
-            app.UseExceptionHandler(appBuilder => {
-                appBuilder.Use(async (context, next) => {
-                    var error = context.Features[typeof (IExceptionHandlerFeature)] as IExceptionHandlerFeature;
-                    if (error != null && error.Error != null) {
-                        context.Response.StatusCode = 500;
-                        context.Response.ContentType = "application/json";
-                        await context.Response.WriteAsync(
-                            JsonConvert.SerializeObject(
-                                new HandleErrorsModel {
-                                    Title = "An error occured !",
-                                    Code = 500,
-                                    Message = error.Error.Message
-                                }));
+            app.UseExceptionHandler(appBuilder =>
+            {
+                appBuilder.Use(async (context, next) =>
+                {
+                    var error = context.Features[typeof(IExceptionHandlerFeature)] as IExceptionHandlerFeature;
+                    if (error != null && error.Error != null)
+                    {
+                        if (error.Error is BusinessException)
+                        {
+                            context.Response.StatusCode = 400;
+                            context.Response.ContentType = "application/json";
+                            await context.Response.WriteAsync(
+                                JsonConvert.SerializeObject(
+                                    new HandleErrorsModel
+                                    {
+                                        Title = "An error occured !",
+                                        Code = 400,
+                                        Message = error.Error.Message
+                                    }));
+
+                        }
+                        else
+                        {
+                            context.Response.StatusCode = 500;
+                            context.Response.ContentType = "application/json";
+                            await context.Response.WriteAsync(
+                                JsonConvert.SerializeObject(
+                                    new HandleErrorsModel
+                                    {
+                                        Title = "An error occured !",
+                                        Code = 500,
+                                        Message = error.Error.Message
+                                    }));
+                        }
                     }
                     else
                         await next();
