@@ -28,6 +28,10 @@ alter table tutorials  drop foreign key FKE595C8678A5155E4
 ;
 
     
+alter table tutorialSources  drop foreign key FKCE7C088AEC52511F
+;
+
+    
 alter table userExperiences  drop foreign key FKC8F5034E18195D0C
 ;
 
@@ -117,6 +121,7 @@ alter table users  drop foreign key FK617CBC1A18195D0C
         Id INTEGER not null,
        Content VARCHAR(255),
        Type VARCHAR(255),
+       TutorialId INTEGER,
        primary key (Id)
     );
 
@@ -176,6 +181,12 @@ alter table users  drop foreign key FK617CBC1A18195D0C
         add constraint FKE595C8678A5155E4 
         foreign key (Exercice_id) 
         references exercices (Id);
+
+    alter table tutorialSources 
+        add index (TutorialId), 
+        add constraint FKCE7C088AEC52511F 
+        foreign key (TutorialId) 
+        references tutorials (Id);
 
     alter table userExperiences 
         add index (Account_id), 

@@ -14,6 +14,8 @@ namespace LeadisTeam.LeadisJourney.Api.Ioc {
                 .As<IGroupService>();
             builder.RegisterType<UserExperienceService>()
                 .As<IUserExperienceService>();
-        }
+		    builder.RegisterType<TutorialService>()
+		        .As<ITutorialService>();
+		}
 	}
 }

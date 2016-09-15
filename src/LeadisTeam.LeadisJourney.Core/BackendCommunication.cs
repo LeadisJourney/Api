@@ -14,7 +14,6 @@ namespace LeadisTeam.LeadisJourney.Core
                 Language = language,
                 Type = type,
                 Exercise = exercise
-
             };
 
             var jsonApiClientLight = new JsonApiClientLight();
