@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LeadisTeam.LeadisJourney.Api.Controllers {
     [EnableCors("AllowAll")]
+    [Authorize("Bearer")]
     [Route("v0.1/api/[controller]")]
     public class UserExperienceController : ApiController
     {
@@ -20,7 +21,6 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
         }
 
         [HttpPost]
-        [Authorize("Bearer")]
         public async Task<UserExperienceModel.Response> ManageCode([FromBody] UserExperienceModel res)
         {
             var userId = User.Claims.First(c => c.Type.Equals("UserId")).Value;

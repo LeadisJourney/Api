@@ -8,5 +8,6 @@ namespace LeadisTeam.LeadisJourney.Core.Entities
         public virtual string Title { get; set; }
         public virtual ICollection<TutorialSource> Sources { get; set; }
         public virtual Exercice Exercice { get; set; }
+        public virtual int ExerciceId { get; set; }
     }
 }

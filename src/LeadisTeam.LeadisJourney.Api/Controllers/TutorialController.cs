@@ -1,14 +1,18 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using LeadisTeam.LeadisJourney.Api.Models;
+using LeadisTeam.LeadisJourney.Core.Entities;
 using LeadisTeam.LeadisJourney.Repositories.NHibernate;
 using LeadisTeam.LeadisJourney.Services.Contracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace LeadisTeam.LeadisJourney.Api.Controllers {
     [EnableCors("AllowAll")]
+    [Authorize("Bearer")]
     [Route("v0.1/api/[controller]")]
     public class TutorialController : ApiController
     {
@@ -50,7 +54,17 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
             };
         }
 
-        // Création, Modification et Suppression du côté ADMIN uniquement
+        [HttpPost]
+        public OkResult Create([FromBody] CreateTutorialModel res)
+        {
+            _tutorialService.Create(res.Title, res.Sources.Select(s => new TutorialSource
+            {
+                Content = s.Content,
+                Type = s.Type
+            }), res.Type, res.ExerciceId);
+            return Ok();
+        }
+        // Création, Modification et Suppression 
 
     }
 }

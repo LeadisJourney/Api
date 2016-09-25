@@ -21,15 +21,8 @@ namespace LeadisTeam.LeadisJourney.Services
 
         //Hashing without salt
         public string Encrypt(string elem) {
-            //Generate a random salt
-            /*
-                        RandomNumberGenerator rng = new RNGCryptoServiceProvider();
-                        byte[] tokenData = new byte[32];
-                        rng.GetBytes(tokenData);
-                        string salt = Convert.ToBase64String(tokenData);
-            */
+
             HashAlgorithm hash = SHA256.Create();
-           // HashAlgorithm hash = new SHA256Managed();
             byte[] plainTextBytes = System.Text.Encoding.UTF8.GetBytes(elem);
             byte[] hashBytes = hash.ComputeHash(plainTextBytes);
             elem = Convert.ToBase64String(hashBytes);

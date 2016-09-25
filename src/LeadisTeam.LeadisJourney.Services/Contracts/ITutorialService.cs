@@ -1,4 +1,5 @@
-﻿using LeadisTeam.LeadisJourney.Core.Entities;
+﻿using System.Collections.Generic;
+using LeadisTeam.LeadisJourney.Core.Entities;
 
 namespace LeadisTeam.LeadisJourney.Services.Contracts
 {
@@ -6,5 +7,6 @@ namespace LeadisTeam.LeadisJourney.Services.Contracts
     {
         Tutorial[] GetAll();
         Tutorial GetById(int id);
+        void Create(string title, IEnumerable<TutorialSource> tutorialSources, string type, int exerciceId);
     }
 }

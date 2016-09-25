@@ -13,6 +13,10 @@ namespace LeadisTeam.LeadisJourney.Api.Ioc {
                 .As<IGroupRepository>();
             builder.RegisterType<TutorialRepository>()
                 .As<ITutorialRepository>();
-        }
+		    builder.RegisterType<ExerciceRepository>()
+		        .As<IExerciceRepository>();
+		    builder.RegisterType<SourceRepository>()
+		        .As<ISourceRepository>();
+		}
 	}
 }

@@ -8,6 +8,10 @@ namespace LeadisTeam.LeadisJourney.Repositories.Map
             Id(source => source.Id).GeneratedBy.Increment();
             Map(c => c.Content);
             Map(c => c.Type);
+            References(x => x.Exercice)
+             .Column("ExerciceId")
+             .Cascade.All();
+            Map(c => c.ExerciceId);
             Table("exerciceSources");
         }
     }

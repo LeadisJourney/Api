@@ -7,7 +7,8 @@ namespace LeadisTeam.LeadisJourney.Repositories.Map
 
         public ExerciceMap() {
             Id(exercice => exercice.Id).GeneratedBy.Increment();
-            HasOne(c => c.Source);
+            HasMany(c => c.Sources)
+                .KeyColumn("ExerciceId");
             HasMany(c => c.Helps);
             Map(c => c.Position);
             Map(c => c.Title);

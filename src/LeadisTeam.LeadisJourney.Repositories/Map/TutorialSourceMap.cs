@@ -12,7 +12,6 @@ namespace LeadisTeam.LeadisJourney.Repositories.Map {
             References(x => x.Tutorial)
                 .Column("TutorialId")
                 .Cascade.All();
-            Map(c => c.TutorialId);
             Table("tutorialSources");
         }
     }

@@ -12,6 +12,10 @@ alter table GroupToAccount  drop foreign key FK589DA7B918195D0C
 ;
 
     
+alter table exerciceSources  drop foreign key FK56E6217A5921C3BB
+;
+
+    
 alter table AccountToGroup  drop foreign key FKB9A9CD6518195D0C
 ;
 
@@ -24,7 +28,7 @@ alter table helpSources  drop foreign key FK2DC6875F8A5155E4
 ;
 
     
-alter table tutorials  drop foreign key FKE595C8678A5155E4
+alter table tutorials  drop foreign key Exercice_id
 ;
 
     
@@ -88,6 +92,7 @@ alter table users  drop foreign key FK617CBC1A18195D0C
         Id INTEGER not null,
        Content VARCHAR(255),
        Type VARCHAR(255),
+       ExerciceId INTEGER,
        primary key (Id)
     );
 
@@ -158,6 +163,12 @@ alter table users  drop foreign key FK617CBC1A18195D0C
         foreign key (Account_id) 
         references accounts (Id);
 
+    alter table exerciceSources 
+        add index (ExerciceId), 
+        add constraint FK56E6217A5921C3BB 
+        foreign key (ExerciceId) 
+        references exercices (Id);
+
     alter table AccountToGroup 
         add index (Account_id), 
         add constraint FKB9A9CD6518195D0C 
@@ -178,7 +189,7 @@ alter table users  drop foreign key FK617CBC1A18195D0C
 
     alter table tutorials 
         add index (Exercice_id), 
-        add constraint FKE595C8678A5155E4 
+        add constraint Exercice_id 
         foreign key (Exercice_id) 
         references exercices (Id);
 
