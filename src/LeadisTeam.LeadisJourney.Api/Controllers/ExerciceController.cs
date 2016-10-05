@@ -67,5 +67,26 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers
                 })
             };
         }
+
+        [HttpPut("{id}")]
+        [Authorize("Bearer")]
+        public OkResult Update(int id, [FromBody] UpdateExerciceModel res)
+        {
+            _exerciceService.Update(id, res.Title, res.Position, res.Sources.Select(s => new ExerciceSource()
+            {
+                Type = s.Type,
+                Content = s.Content
+            }));
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize("Bearer")]
+        public OkResult Desactivate(int id)
+        {
+            _exerciceService.Desactivate(id);
+            return Ok();
+        }
+
     }
 }

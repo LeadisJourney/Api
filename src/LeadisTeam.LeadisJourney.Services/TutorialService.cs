@@ -30,7 +30,7 @@ namespace LeadisTeam.LeadisJourney.Services
             return _tutorialRepository.GetWithSource(id);
         }
 
-        public void Create(string title, IEnumerable<TutorialSource> tutorialSources, string type, int exerciceId)
+        public void Create(string title, IEnumerable<TutorialSource> tutorialSources, int exerciceId)
         {
             if (_tutorialRepository.All().Any(s => s.Title.Equals(title)))
                 throw new ExistingTitleException();
@@ -44,6 +44,30 @@ namespace LeadisTeam.LeadisJourney.Services
                 ExerciceId = exerciceId
             };
             _tutorialRepository.Save(tuto);
+            foreach (var tutorialSource in tutorialSources)
+            {
+                tutorialSource.TutorialId = tuto.Id;
+                tutorialSource.Tutorial = tuto;
+                _sourceRepository.Save(tutorialSource);
+            }
+        }
+
+        public void Desactivate(int id)
+        {
+            //TODO
+        }
+
+        public void Update(int id, string title, int exerciceId, IEnumerable<TutorialSource> tutorialSources)
+        {
+            var tuto = _tutorialRepository.FindBy(id);
+            if (tuto == null)
+            {
+                throw new BadIdException();
+            }
+            tuto.Title = title;
+            tuto.ExerciceId = exerciceId;
+            _tutorialRepository.Save(tuto);
+            //TODO delete sources
             foreach (var tutorialSource in tutorialSources)
             {
                 tutorialSource.TutorialId = tuto.Id;

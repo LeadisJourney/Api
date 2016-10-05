@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace LeadisTeam.LeadisJourney.Api.Models
 {
-    public class CreateTutorialModel
+    public class UpdateExerciceModel
     {
+        public int Position { get; set; }
         public string Title { get; set; }
         public IEnumerable<TutorialSourceModel> Sources { get; set; }
-        public int ExerciceId { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LeadisTeam.LeadisJourney.Api.Models
 {
-    public class CreateTutorialModel
+    public class UpdateTutorialModel
     {
         public string Title { get; set; }
         public IEnumerable<TutorialSourceModel> Sources { get; set; }

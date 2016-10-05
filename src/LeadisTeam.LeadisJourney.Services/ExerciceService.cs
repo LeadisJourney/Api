@@ -11,11 +11,11 @@ namespace LeadisTeam.LeadisJourney.Services
 {
     public class ExerciceService : IExerciceService
     {
-        private readonly ITutorialRepository _tutorialRepository;
+        private readonly ISourceRepository _sourceRepository;
         private readonly IExerciceRepository _exerciceRepository;
-        public ExerciceService(IExerciceRepository exerciceRepository, ITutorialRepository tutorialRepository)
+        public ExerciceService(IExerciceRepository exerciceRepository, ISourceRepository sourceRepository)
         {
-            _tutorialRepository = tutorialRepository;
+            _sourceRepository = sourceRepository;
             _exerciceRepository = exerciceRepository;
         }
         public void Create(string title, int position, IEnumerable<ExerciceSource> sources)
@@ -28,6 +28,12 @@ namespace LeadisTeam.LeadisJourney.Services
                 Position = position
             };
             _exerciceRepository.Save(exo);
+            foreach (var exerciceSource in sources)
+            {
+                exerciceSource.ExerciceId = exo.Id;
+                exerciceSource.Exercice = exo;
+                _sourceRepository.Save(exerciceSource);
+            }
         }
 
         public Exercice[] GetAll()
@@ -38,6 +44,30 @@ namespace LeadisTeam.LeadisJourney.Services
         public Exercice GetById(int id)
         {
             return _exerciceRepository.GetWithSource(id);
+        }
+
+        public void Update(int id, string title, int position, IEnumerable<ExerciceSource> sources)
+        {
+            var exo = _exerciceRepository.FindBy(id);
+            if (exo == null)
+            {
+                throw new BadIdException();
+            }
+            exo.Title = title;
+            exo.Position = position;
+            _exerciceRepository.Save(exo);
+            //TODO delete sources
+            foreach (var exerciceSource in sources)
+            {
+                exerciceSource.ExerciceId = exo.Id;
+                exerciceSource.Exercice = exo;
+                _sourceRepository.Save(exerciceSource);
+            }
+        }
+
+        public void Desactivate(int id)
+        {
+            //TODO
         }
     }
 }

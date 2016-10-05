@@ -61,10 +61,28 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
             {
                 Content = s.Content,
                 Type = s.Type
-            }), res.Type, res.ExerciceId);
+            }), res.ExerciceId);
             return Ok();
         }
-        // Création, Modification et Suppression 
 
+        [HttpPut("{id}")]
+        [Authorize("Bearer")]
+        public OkResult Update(int id, [FromBody] UpdateTutorialModel res)
+        {
+            _tutorialService.Update(id, res.Title, res.ExerciceId, res.Sources.Select(s => new TutorialSource()
+            {
+                Type = s.Type,
+                Content = s.Content
+            }));
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize("Bearer")]
+        public OkResult Desactivate(int id)
+        {
+            _tutorialService.Desactivate(id);
+            return Ok();
+        }
     }
 }
