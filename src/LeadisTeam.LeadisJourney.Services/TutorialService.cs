@@ -52,11 +52,6 @@ namespace LeadisTeam.LeadisJourney.Services
             }
         }
 
-        public void Desactivate(int id)
-        {
-            //TODO
-        }
-
         public void Update(int id, string title, int exerciceId, IEnumerable<TutorialSource> tutorialSources)
         {
             var tuto = _tutorialRepository.FindBy(id);
@@ -74,6 +69,14 @@ namespace LeadisTeam.LeadisJourney.Services
                 tutorialSource.Tutorial = tuto;
                 _sourceRepository.Save(tutorialSource);
             }
+        }
+
+        public void Desactivate(int id)
+        {
+            var tuto = _tutorialRepository.FindBy(id);
+            tuto.Sources.Clear();
+            //TODO
+            // EntityState desactivated
         }
     }
 }

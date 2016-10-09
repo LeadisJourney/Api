@@ -5,6 +5,7 @@
         public string Password { get; set; }
         public class Response {
             public string Token { get; set; }
+            public int Id { get; set; }
         }
     }
 }

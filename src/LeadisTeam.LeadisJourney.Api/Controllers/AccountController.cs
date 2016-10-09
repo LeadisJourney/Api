@@ -24,6 +24,7 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
         }
 
         // GET api/values/5
+        //TODO Impossible car front ne connait pas l'id
         [HttpGet("{id}")]
         public ViewAccountModel Get(int id) {
             var account = _accountService.Get(id);
@@ -42,7 +43,8 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers {
             if (user != null) {
                 var token = _authenticator.GetToken(user, DateTime.UtcNow.AddYears(1));
                 return new LoginAccountModel.Response {
-                    Token = token
+                    Token = token,
+                    Id = user.Id
                 };
             }
             //TODO Gestion d'erreur
