@@ -62,9 +62,10 @@ namespace LeadisTeam.LeadisJourney.Services
             tuto.Title = title;
             tuto.ExerciceId = exerciceId;
             _tutorialRepository.Save(tuto);
-            //TODO delete sources
+            tuto.Sources.Clear();
             foreach (var tutorialSource in tutorialSources)
             {
+                tuto.Sources.Add(tutorialSource);
                 tutorialSource.TutorialId = tuto.Id;
                 tutorialSource.Tutorial = tuto;
                 _sourceRepository.Save(tutorialSource);

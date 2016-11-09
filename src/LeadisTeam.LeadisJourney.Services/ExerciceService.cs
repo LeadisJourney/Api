@@ -57,8 +57,10 @@ namespace LeadisTeam.LeadisJourney.Services
             exo.Position = position;
             _exerciceRepository.Save(exo);
             //TODO delete sources
+            exo.Sources.Clear();
             foreach (var exerciceSource in sources)
             {
+                exo.Sources.Add(exerciceSource);
                 exerciceSource.ExerciceId = exo.Id;
                 exerciceSource.Exercice = exo;
                 _sourceRepository.Save(exerciceSource);
