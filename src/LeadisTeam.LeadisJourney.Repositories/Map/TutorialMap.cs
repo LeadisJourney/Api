@@ -6,6 +6,7 @@ namespace LeadisTeam.LeadisJourney.Repositories.Map
     public class TutorialMap : ClassMap<Tutorial> {
         public TutorialMap() {
             Id(tutorial => tutorial.Id).GeneratedBy.Increment();
+            Map(c => c.EntityState).CustomType<int>();
             References(c => c.Exercice)
                 .ForeignKey("Exercice_id");
             HasMany(c => c.Sources)

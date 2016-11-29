@@ -83,6 +83,7 @@ alter table users  drop foreign key FK617CBC1A18195D0C
 
     create table exercices (
         Id INTEGER not null,
+       EntityState INTEGER,
        Position INTEGER,
        Title VARCHAR(255),
        primary key (Id)
@@ -92,6 +93,7 @@ alter table users  drop foreign key FK617CBC1A18195D0C
         Id INTEGER not null,
        Content VARCHAR(255),
        Type VARCHAR(255),
+       EntityState INTEGER,
        ExerciceId INTEGER,
        primary key (Id)
     );
@@ -111,12 +113,14 @@ alter table users  drop foreign key FK617CBC1A18195D0C
         Id INTEGER not null,
        Content VARCHAR(255),
        Type VARCHAR(255),
+       EntityState INTEGER,
        Exercice_id INTEGER,
        primary key (Id)
     );
 
     create table tutorials (
         Id INTEGER not null,
+       EntityState INTEGER,
        Title VARCHAR(255),
        Exercice_id INTEGER,
        primary key (Id)
@@ -126,6 +130,7 @@ alter table users  drop foreign key FK617CBC1A18195D0C
         Id INTEGER not null,
        Content VARCHAR(255),
        Type VARCHAR(255),
+       EntityState INTEGER,
        TutorialId INTEGER,
        primary key (Id)
     );

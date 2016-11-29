@@ -10,7 +10,7 @@ namespace LeadisTeam.LeadisJourney.Repositories {
         }
         public IQueryable<Exercice> GetAllWithSources()
         {
-            return this.All().Fetch(m => m.Sources);
+            return this.All().Where(p => p.EntityState == 0).Fetch(m => m.Sources);
         }
 
         public Exercice GetWithSource(int id)

@@ -56,7 +56,6 @@ namespace LeadisTeam.LeadisJourney.Services
             exo.Title = title;
             exo.Position = position;
             _exerciceRepository.Save(exo);
-            //TODO delete sources
             exo.Sources.Clear();
             foreach (var exerciceSource in sources)
             {
@@ -69,7 +68,10 @@ namespace LeadisTeam.LeadisJourney.Services
 
         public void Desactivate(int id)
         {
-            //TODO
+            var exo = _exerciceRepository.FindBy(id);
+            _sourceRepository.Delete(exo.Sources);
+            exo.Sources.Clear();
+            _exerciceRepository.Delete(exo);
         }
     }
 }

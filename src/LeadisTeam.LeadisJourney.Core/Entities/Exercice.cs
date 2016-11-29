@@ -2,7 +2,7 @@
 
 namespace LeadisTeam.LeadisJourney.Core.Entities
 {
-    public class Exercice : IEntity
+    public class Exercice : IEntity, IEntityState
     {
         public virtual int Id { get; set; }
         public virtual string Title { get; set; }
@@ -12,5 +12,6 @@ namespace LeadisTeam.LeadisJourney.Core.Entities
         public virtual IList<Tutorial> Tutorials { get; set; }
         //The potential help docs
         public virtual IList<HelpSource> Helps { get; set; }
+        public virtual EntityState EntityState { get; set; }
     }
 }

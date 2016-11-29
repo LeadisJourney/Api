@@ -75,9 +75,9 @@ namespace LeadisTeam.LeadisJourney.Services
         public void Desactivate(int id)
         {
             var tuto = _tutorialRepository.FindBy(id);
+            _sourceRepository.Delete(tuto.Sources);
             tuto.Sources.Clear();
-            //TODO
-            // EntityState desactivated
+            _tutorialRepository.Delete(tuto);
         }
     }
 }

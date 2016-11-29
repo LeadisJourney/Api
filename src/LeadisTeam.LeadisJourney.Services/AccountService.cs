@@ -19,7 +19,6 @@ namespace LeadisTeam.LeadisJourney.Services
 		    _userRepository = userRepository;
 	    }
 
-        //Hashing without salt
         public string Encrypt(string elem) {
 
             HashAlgorithm hash = SHA256.Create();
