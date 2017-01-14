@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using LeadisTeam.LeadisJourney.Api.Models;
 using LeadisTeam.LeadisJourney.Repositories.NHibernate;
 using LeadisTeam.LeadisJourney.Services.Contracts;
@@ -8,6 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LeadisTeam.LeadisJourney.Api.Controllers
 {
+    /*
+     *  This part will not be implemented but is still implemented in the database's scheme 
+     */
     [EnableCors("AllowAll")]
     [Route("v0.1/api/[controller]")]
     public class GroupController : ApiController {
@@ -22,14 +26,14 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            throw new NotImplementedException();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            return "value";
+            throw new NotImplementedException();
         }
 
         // POST api/group
@@ -57,6 +61,7 @@ namespace LeadisTeam.LeadisJourney.Api.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            throw new NotImplementedException();
         }
     }
 }

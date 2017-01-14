@@ -12,7 +12,8 @@
       "target": "project",
       "version": "1.0.0-*"
     },
-    "System.Security.Cryptography.Algorithms": "4.2.0"
+    "System.Security.Cryptography.Algorithms": "4.2.0",
+    "Microsoft.Extensions.Options": "1.1.0"
   },
   "frameworks": {
     "netstandard1.3": {

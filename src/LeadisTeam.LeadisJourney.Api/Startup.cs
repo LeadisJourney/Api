@@ -5,6 +5,7 @@ using Autofac.Extensions.DependencyInjection;
 using LeadisTeam.LeadisJourney.Api.Ioc;
 using LeadisTeam.LeadisJourney.Api.Models;
 using LeadisTeam.LeadisJourney.Api.Security;
+using LeadisTeam.LeadisJourney.Core.Configuration;
 using LeadisTeam.LeadisJourney.Repositories.NHibernate;
 using LeadisTeam.LeadisJourney.Services.Exceptions;
 using Microsoft.AspNetCore.Builder;
@@ -15,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using NLog.Extensions.Logging;
 
 namespace LeadisTeam.LeadisJourney.Api
 {
@@ -57,6 +59,8 @@ namespace LeadisTeam.LeadisJourney.Api
                 p.AllowAnyHeader();
             }));
 
+            services.Configure<ServerConfiguration>(Configuration.GetSection("Server"));
+
             // Adding ioc Autofac
             var containerBuilder = new ContainerBuilder();
             containerBuilder.Populate(services);
@@ -71,6 +75,11 @@ namespace LeadisTeam.LeadisJourney.Api
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            //add NLog to ASP.NET Core
+            loggerFactory.AddNLog();
+            //needed for non-NETSTANDARD platforms: configure nlog.config in your project root
+            env.ConfigureNLog("nlog.config");
 
             // disable because we do not target IIS engine
             //app.UseIISPlatformHandler();

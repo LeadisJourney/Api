@@ -1,12 +1,19 @@
 ﻿using System.Threading.Tasks;
+using LeadisTeam.LeadisJourney.Core.Configuration;
 using Orion.ApiClientLight;
 
 namespace LeadisTeam.LeadisJourney.Core
 {
     public class BackendCommunication {
+        private readonly ServerConfiguration _serverConfigurations;
+
+        public BackendCommunication(ServerConfiguration serverConfigurations)
+        {
+            _serverConfigurations = serverConfigurations;
+        }
 
         public async Task<StatusExerciceModel> ToCompilatorAsync(string userId, string requestId, string code, string language, string type, string exercise) {
-            string url = "http://163.5.84.111:8443/v0.1/ce/status";
+            string url = _serverConfigurations.Url;
             object data = new {
                 UserId = userId,
                 RequestId = requestId,
